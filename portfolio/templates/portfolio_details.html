@@ -1,0 +1,338 @@
+
+{% extends 'base.html' %}
+
+{% block title %}{{ project.title }} - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative bg-gray-900 text-white py-20 lg:py-32 overflow-hidden">
+    {% if project.image %}
+    <div class="absolute inset-0">
+        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-full h-full object-cover opacity-40">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    </div>
+    {% endif %}
+    
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <nav class="flex items-center justify-center space-x-2 text-sm mb-8">
+            <a href="{% url 'folio:home' %}" class="text-gray-300 hover:text-white transition-colors">Accueil</a>
+            <span class="text-gray-400">/</span>
+            <a href="{% url 'folio:portfolio' %}" class="text-gray-300 hover:text-white transition-colors">Portfolio</a>
+            <span class="text-gray-400">/</span>
+            <span class="text-white">{{ project.title }}</span>
+        </nav>
+        
+        <h1 class="text-3xl lg:text-5xl font-bold mb-6">{{ project.title }}</h1>
+        <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">{{ project.short_description }}</p>
+        
+        <div class="flex flex-wrap justify-center gap-4">
+            {% if project.live_url %}
+            <a href="{{ project.live_url }}" target="_blank" 
+               class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i>
+                Voir le projet
+            </a>
+            {% endif %}
+            {% if project.github_url %}
+            <a href="{{ project.github_url }}" target="_blank" 
+               class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
+                <i class="fab fa-github mr-2"></i>
+                Code source
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Détails du projet -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+            <!-- Contenu principal -->
+            <div class="lg:col-span-2 space-y-12">
+                <!-- Description -->
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">À propos du projet</h2>
+                    <div class="prose prose-lg max-w-none text-gray-600">
+                        {{ project.description|linebreaks }}
+                    </div>
+                </div>
+                
+                <!-- Galerie d'images -->
+                {% if project.image %}
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">Aperçu visuel</h2>
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="rounded-xl overflow-hidden shadow-lg">
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-full h-auto object-cover">
+                        </div>
+                        <!-- Espace pour d'autres images si nécessaire -->
+                    </div>
+                </div>
+                {% endif %}
+                
+                <!-- Fonctionnalités clés -->
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">Fonctionnalités principales</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Ces fonctionnalités peuvent être ajoutées au modèle ou codées en dur -->
+                        <div class="bg-gray-50 p-6 rounded-xl">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-mobile-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Design Responsive</h3>
+                            <p class="text-gray-600">Interface adaptative pour tous les appareils et tailles d'écran.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-xl">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-rocket text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Performance Optimisée</h3>
+                            <p class="text-gray-600">Temps de chargement rapide et expérience utilisateur fluide.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-xl">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-shield-alt text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Sécurisé</h3>
+                            <p class="text-gray-600">Implementation des meilleures pratiques de sécurité web.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-xl">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-cogs text-yellow-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Facilement Maintenable</h3>
+                            <p class="text-gray-600">Code propre et bien structuré pour une maintenance aisée.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="space-y-8">
+                <!-- Informations du projet -->
+                <div class="animate-on-scroll bg-gray-50 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4">Informations du projet</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Date</span>
+                            <p class="text-gray-900">{{ project.created_date|date:"F Y" }}</p>
+                        </div>
+                        
+                        {% if project.live_url %}
+                        <div>
+                            <span class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Lien du projet</span>
+                            <p>
+                                <a href="{{ project.live_url }}" target="_blank" 
+                                   class="text-blue-600 hover:text-blue-800 break-all transition-colors">
+                                    {{ project.live_url|truncatechars:30 }}
+                                </a>
+                            </p>
+                        </div>
+                        {% endif %}
+                        
+                        {% if project.github_url %}
+                        <div>
+                            <span class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Code source</span>
+                            <p>
+                                <a href="{{ project.github_url }}" target="_blank" 
+                                   class="text-blue-600 hover:text-blue-800 break-all transition-colors">
+                                    GitHub
+                                </a>
+                            </p>
+                        </div>
+                        {% endif %}
+                        
+                        {% if project.featured %}
+                        <div>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                <i class="fas fa-star mr-1"></i>
+                                Projet vedette
+                            </span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Technologies utilisées -->
+                {% if project.technologies.all %}
+                <div class="animate-on-scroll bg-white border border-gray-200 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4">Technologies utilisées</h3>
+                    <div class="flex flex-wrap gap-2">
+                        {% for tech in project.technologies.all %}
+                        <span class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full font-medium">
+                            {{ tech.name }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                <!-- Actions rapides -->
+                <div class="animate-on-scroll space-y-3">
+                    {% if project.live_url %}
+                    <a href="{{ project.live_url }}" target="_blank" 
+                       class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center">
+                        <i class="fas fa-external-link-alt mr-2"></i>
+                        Visiter le site
+                    </a>
+                    {% endif %}
+                    
+                    {% if project.github_url %}
+                    <a href="{{ project.github_url }}" target="_blank" 
+                       class="w-full bg-gray-800 hover:bg-gray-900 text-white py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center">
+                        <i class="fab fa-github mr-2"></i>
+                        Voir le code
+                    </a>
+                    {% endif %}
+                    
+                    <a href="{% url 'folio:contact' %}" 
+                       class="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Discuter du projet
+                    </a>
+                </div>
+                
+                <!-- Partage -->
+                <div class="animate-on-scroll bg-gray-50 p-6 rounded-xl">
+                    <h3 class="text-lg font-bold mb-4">Partager ce projet</h3>
+                    <div class="flex space-x-3">
+                        <a href="https://twitter.com/intent/tweet?text={{ project.title|urlencode }}&url={{ request.build_absolute_uri }}" 
+                           target="_blank" class="flex-1 bg-blue-400 hover:bg-blue-500 text-white p-3 rounded-lg text-center transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri|urlencode }}" 
+                           target="_blank" class="flex-1 bg-blue-700 hover:bg-blue-800 text-white p-3 rounded-lg text-center transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <button onclick="copyToClipboard('{{ request.build_absolute_uri }}')" 
+                                class="flex-1 bg-gray-600 hover:bg-gray-700 text-white p-3 rounded-lg text-center transition-colors">
+                            <i class="fas fa-link"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projets similaires -->
+{% if related_projects %}
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 animate-on-scroll">
+            <h2 class="text-3xl font-bold mb-4 gradient-text">Autres Projets</h2>
+            <p class="text-xl text-gray-600">Découvrez d'autres réalisations</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for related_project in related_projects %}
+            <div class="animate-on-scroll bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                {% if related_project.image %}
+                <div class="relative group overflow-hidden">
+                    <img src="{{ related_project.image.url }}" alt="{{ related_project.title }}" 
+                         class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="{% url 'folio:project_detail' related_project.id %}" 
+                           class="bg-white text-gray-900 p-3 rounded-full hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-eye text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                {% else %}
+                <div class="w-full h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+                    <i class="fas fa-code text-4xl text-white"></i>
+                </div>
+                {% endif %}
+                
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">{{ related_project.title }}</h3>
+                    <p class="text-gray-600 mb-4">{{ related_project.short_description|truncatewords:15 }}</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        {% for tech in related_project.technologies.all|slice:":3" %}
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">{{ tech.name }}</span>
+                        {% endfor %}
+                    </div>
+                    
+                    <a href="{% url 'folio:project_detail' related_project.id %}" 
+                       class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">
+                        Voir plus <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="{% url 'folio:portfolio' %}" 
+               class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                Voir tous les projets
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+<section class="py-20 gradient-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
+        <h2 class="text-4xl font-bold text-white mb-6">Intéressé par un projet similaire ?</h2>
+        <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            Je peux créer une solution sur mesure adaptée à vos besoins spécifiques. 
+            Discutons de votre vision et donnons-lui vie.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{% url 'folio:contact' %}" 
+               class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition-colors">
+                Commencer un projet
+            </a>
+            <a href="{% url 'folio:portfolio' %}" 
+               class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg font-bold text-lg transition-colors">
+                Voir plus de projets
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Fonction pour copier le lien
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            // Créer une notification toast
+            const toast = document.createElement('div');
+            toast.className = 'fixed top-24 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+            toast.textContent = 'Lien copié !';
+            document.body.appendChild(toast);
+            
+            // Supprimer la notification après 3 secondes
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }).catch(function() {
+            alert('Impossible de copier le lien');
+        });
+    }
+    
+    // Animation des éléments au scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fadeInUp');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+{% endblock %}

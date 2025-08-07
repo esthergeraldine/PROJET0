@@ -1,0 +1,12 @@
+INFO 2025-08-07 11:33:17,333 autoreload 21820 10556 Watching for file changes with StatReloader
+INFO 2025-08-07 11:44:18,970 autoreload 21820 10556 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\models.py changed, reloading.
+INFO 2025-08-07 11:44:20,551 autoreload 20740 18760 Watching for file changes with StatReloader
+INFO 2025-08-07 11:44:29,681 autoreload 20740 18760 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\models.py changed, reloading.
+INFO 2025-08-07 11:44:30,746 autoreload 5784 11628 Watching for file changes with StatReloader
+INFO 2025-08-07 11:44:32,404 autoreload 5784 11628 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\models.py changed, reloading.
+INFO 2025-08-07 11:44:33,509 autoreload 17836 20404 Watching for file changes with StatReloader
+INFO 2025-08-07 11:44:36,001 autoreload 17836 20404 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\models.py changed, reloading.
+INFO 2025-08-07 11:44:37,083 autoreload 18416 5524 Watching for file changes with StatReloader
+INFO 2025-08-07 11:44:38,732 autoreload 18416 5524 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\models.py changed, reloading.
+INFO 2025-08-07 11:44:40,006 autoreload 1804 7156 Watching for file changes with StatReloader
+INFO 2025-08-07 12:01:32,835 autoreload 1804 7156 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\portfolio\settings.py changed, reloading.
