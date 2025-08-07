@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+
+{% block title %}À Propos - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">À Propos de Moi</h1>
+        <p class="text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto">
+            Découvrez mon parcours, mes compétences et ma passion pour le développement web
+        </p>
+    </div>
+</section>
+
+<!-- Section principale -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+            <div class="animate-on-scroll">
+                {% if profile.avatar %}
+                <img src="{{ profile.avatar.url }}" alt="Photo de profil" class="w-full max-w-md mx-auto rounded-2xl shadow-2xl">
+                {% else %}
+                <div class="w-full max-w-md mx-auto h-96 bg-gray-200 rounded-2xl flex items-center justify-center">
+                    <i class="fas fa-user text-8xl text-gray-400"></i>
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="animate-on-scroll">
+                <h2 class="text-3xl font-bold mb-6 gradient-text">
+                    Salut, je suis {{ profile.user.get_full_name|default:"Développeur" }}
+                </h2>
+                <div class="prose prose-lg text-gray-600">
+                    {{ profile.bio|default:"Développeur passionné avec plusieurs années d'expérience dans la création d'applications web modernes et performantes. J'aime résoudre des problèmes complexes et créer des expériences utilisateur exceptionnelles." }}
+                </div>
+                
+                {% if profile.location %}
+                <div class="flex items-center mt-6 text-gray-600">
+                    <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i>
+                    <span>{{ profile.location }}</span>
+                </div>
+                {% endif %}
+                
+                {% if profile.cv %}
+                <div class="mt-8">
+                    <a href="{{ profile.cv.url }}" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
+                        <i class="fas fa-download mr-2"></i>
+                        Télécharger mon CV
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Compétences -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold mb-4 gradient-text">Compétences Techniques</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Technologies et outils que je maîtrise pour créer des solutions innovantes
+            </p>
+        </div>
+        
+        {% regroup skills by category as skills_by_category %}
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {% for category in skills_by_category %}
+            <div class="animate-on-scroll">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    {% if category.grouper == 'frontend' %}
+                        <i class="fas fa-laptop-code text-blue-600 mr-3"></i>
+                        Frontend
+                    {% elif category.grouper == 'backend' %}
+                        <i class="fas fa-server text-green-600 mr-3"></i>
+                        Backend
+                    {% elif category.grouper == 'tools' %}
+                        <i class="fas fa-tools text-purple-600 mr-3"></i>
+                        Outils
+                    {% elif category.grouper == 'design' %}
+                        <i class="fas fa-paint-brush text-pink-600 mr-3"></i>
+                        Design
+                    {% endif %}
+                </h3>
+                
+                <div class="space-y-4">
+                    {% for skill in category.list %}
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center">
+                                {% if skill.icon %}
+                                <i class="{{ skill.icon }} text-xl mr-3 text-gray-600"></i>
+                                {% endif %}
+                                <span class="font-semibold">{{ skill.name }}</span>
+                            </div>
+                            <span class="text-sm text-gray-500">{{ skill.level }}%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000" data-width="{{ skill.level }}"></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-span-full text-center py-12">
+                <p class="text-gray-500">Aucune compétence ajoutée pour le moment.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Expérience -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold mb-4 gradient-text">Expérience Professionnelle</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Mon parcours professionnel et les expériences qui m'ont formé
+            </p>
+        </div>
+        
+        <div class="relative">
+            <!-- Ligne verticale -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-blue-200"></div>
+            
+            {% for experience in experiences %}
+            <div class="relative flex items-center mb-12 animate-on-scroll">
+                <div class="w-1/2 {% if forloop.counter|divisibleby:2 %}order-2 pl-8{% else %}pr-8 text-right{% endif %}">
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                        <div class="flex items-center {% if forloop.counter|divisibleby:2 %}justify-start{% else %}justify-end{% endif %} mb-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+                                {{ experience.start_date|date:"Y" }} - 
+                                {% if experience.current %}
+                                    Présent
+                                {% else %}
+                                    {{ experience.end_date|date:"Y" }}
+                                {% endif %}
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">{{ experience.position }}</h3>
+                        <h4 class="text-lg text-blue-600 mb-2">{{ experience.company }}</h4>
+                        {% if experience.location %}
+                        <p class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-1"></i>{{ experience.location }}
+                        </p>
+                        {% endif %}
+                        <p class="text-gray-600">{{ experience.description }}</p>
+                    </div>
+                </div>
+                
+                <!-- Point central -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
+            </div>
+            {% empty %}
+            <div class="text-center py-12">
+                <p class="text-gray-500">Aucune expérience ajoutée pour le moment.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Formation -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold mb-4 gradient-text">Formation</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Mon parcours académique et formations complémentaires
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {% for edu in education %}
+            <div class="animate-on-scroll bg-white p-6 rounded-xl shadow-sm card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">
+                        {{ edu.start_date|date:"Y" }} - 
+                        {% if edu.current %}
+                            En cours
+                        {% else %}
+                            {{ edu.end_date|date:"Y" }}
+                        {% endif %}
+                    </span>
+                    <i class="fas fa-graduation-cap text-2xl text-green-600"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">{{ edu.degree }}</h3>
+                <h4 class="text-lg text-green-600 mb-2">{{ edu.field }}</h4>
+                <p class="text-gray-600 mb-4">{{ edu.institution }}</p>
+                {% if edu.description %}
+                <p class="text-sm text-gray-500">{{ edu.description }}</p>
+                {% endif %}
+            </div>
+            {% empty %}
+            <div class="col-span-full text-center py-12">
+                <p class="text-gray-500">Aucune formation ajoutée pour le moment.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-20 gradient-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
+        <h2 class="text-4xl font-bold text-white mb-6">Intéressé par mon profil ?</h2>
+        <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            N'hésitez pas à me contacter pour discuter d'opportunités de collaboration ou pour en savoir plus sur mon expérience.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="{% url 'folio:contact' %}" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition-colors">
+                Me Contacter
+            </a>
+            <a href="{% url 'folio:portfolio' %}" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg font-bold text-lg transition-colors">
+                Voir mes Projets
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Animation des barres de compétences
+    document.addEventListener('DOMContentLoaded', function() {
+        const skillBars = document.querySelectorAll('.skill-bar');
+        
+        const animateSkillBars = function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    const width = bar.getAttribute('data-width');
+                    setTimeout(() => {
+                        bar.style.width = width + '%';
+                    }, 300);
+                    observer.unobserve(bar);
+                }
+            });
+        };
+        
+        const skillBarObserver = new IntersectionObserver(animateSkillBars, {
+            threshold: 0.5
+        });
+        
+        skillBars.forEach(bar => {
+            bar.style.width = '0%';
+            skillBarObserver.observe(bar);
+        });
+    });
+</script>
+{% endblock %}
+
+

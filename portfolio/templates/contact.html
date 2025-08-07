@@ -1,0 +1,356 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact - Portfolio{% endblock %}
+
+
+{%block content %}
+
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Contactez-moi</h1>
+        <p class="text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto">
+            Discutons de votre projet et donnons vie à vos idées ensemble
+        </p>
+    </div>
+</section>
+
+<!-- Section Contact -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Informations de contact -->
+            <div class="animate-on-scroll">
+                <h2 class="text-3xl font-bold mb-8 gradient-text">Restons en Contact</h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Je suis toujours ouvert aux nouvelles opportunités et aux projets intéressants. 
+                    N'hésitez pas à me contacter pour discuter de vos idées.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Email</h3>
+                            <p class="text-gray-600">contact@portfolio.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-phone text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Téléphone</h3>
+                            <p class="text-gray-600">+33 1 23 45 67 89</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-purple-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Localisation</h3>
+                            <p class="text-gray-600">Paris, France</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Réseaux sociaux -->
+                <div class="mt-12">
+                    <h3 class="text-lg font-semibold mb-4">Suivez-moi</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-gray-100 hover:bg-blue-100 rounded-lg flex items-center justify-center text-gray-600 hover:text-blue-600 transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-100 hover:bg-blue-100 rounded-lg flex items-center justify-center text-gray-600 hover:text-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-100 hover:bg-blue-100 rounded-lg flex items-center justify-center text-gray-600 hover:text-blue-600 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-100 hover:bg-blue-100 rounded-lg flex items-center justify-center text-gray-600 hover:text-blue-600 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formulaire de contact -->
+            <div class="animate-on-scroll">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Envoyez-moi un message</h3>
+                    
+                    <form method="post" id="contact-form" class="space-y-6">
+                        {% csrf_token %}
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nom complet</label>
+                                <input type="text" id="name" name="name" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition-colors">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" name="email" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition-colors">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Sujet</label>
+                            <select id="subject" name="subject" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition-colors">
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="Demande de collaboration">Demande de collaboration</option>
+                                <option value="Projet web">Projet web</option>
+                                <option value="Développement sur mesure">Développement sur mesure</option>
+                                <option value="Consultation">Consultation</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                      placeholder="Décrivez votre projet ou votre demande..."
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition-colors resize-none"></textarea>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <input type="checkbox" id="privacy" name="privacy" required class="mt-1 mr-3">
+                            <label for="privacy" class="text-sm text-gray-600">
+                                J'accepte que mes données soient utilisées pour traiter ma demande selon la 
+                                <a href="#" class="text-blue-600 hover:text-blue-800">politique de confidentialité</a>.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 rounded-lg font-semibold transition-all transform hover:scale-105">
+                            <span class="flex items-center justify-center">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Envoyer le message
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold mb-4 gradient-text">Questions Fréquentes</h2>
+            <p class="text-xl text-gray-600">
+                Voici les réponses aux questions les plus courantes
+            </p>
+        </div>
+        
+        <div class="space-y-4">
+            <div class="animate-on-scroll bg-white rounded-xl shadow-sm overflow-hidden">
+                <button class="faq-btn w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold">Quel est votre processus de travail ?</span>
+                    <i class="fas fa-chevron-down transition-transform"></i>
+                </button>
+                <div class="faq-content px-6 pb-4 text-gray-600 hidden">
+                    Mon processus comprend 5 étapes : 1) Analyse des besoins, 2) Conception et maquettage, 3) Développement, 
+                    4) Tests et optimisation, 5) Mise en ligne et maintenance. Je maintiens une communication régulière tout au long du projet.
+                </div>
+            </div>
+            
+            <div class="animate-on-scroll bg-white rounded-xl shadow-sm overflow-hidden">
+                <button class="faq-btn w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold">Combien de temps prend un projet ?</span>
+                    <i class="fas fa-chevron-down transition-transform"></i>
+                </button>
+                <div class="faq-content px-6 pb-4 text-gray-600 hidden">
+                    La durée varie selon la complexité : un site vitrine simple peut prendre 2-3 semaines, 
+                    une application web complexe peut nécessiter 2-3 mois. Je fournis toujours un planning détaillé avant de commencer.
+                </div>
+            </div>
+            
+            <div class="animate-on-scroll bg-white rounded-xl shadow-sm overflow-hidden">
+                <button class="faq-btn w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold">Proposez-vous de la maintenance ?</span>
+                    <i class="fas fa-chevron-down transition-transform"></i>
+                </button>
+                <div class="faq-content px-6 pb-4 text-gray-600 hidden">
+                    Oui, je propose des contrats de maintenance pour assurer la sécurité, les mises à jour et le bon fonctionnement 
+                    de votre site. Je peux également former votre équipe à la gestion du contenu.
+                </div>
+            </div>
+            
+            <div class="animate-on-scroll bg-white rounded-xl shadow-sm overflow-hidden">
+                <button class="faq-btn w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold">Comment établissez-vous vos tarifs ?</span>
+                    <i class="fas fa-chevron-down transition-transform"></i>
+                </button>
+                <div class="faq-content px-6 pb-4 text-gray-600 hidden">
+                    Mes tarifs sont basés sur la complexité du projet, le temps estimé et les technologies utilisées. 
+                    Je fournis toujours un devis détaillé et transparent avant de commencer le travail.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-20 gradient-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
+        <h2 class="text-4xl font-bold text-white mb-6">Prêt à démarrer votre projet ?</h2>
+        <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            Transformons vos idées en réalité. Contactez-moi dès aujourd'hui pour discuter de votre vision 
+            et découvrir comment nous pouvons la concrétiser ensemble.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="mailto:contact@portfolio.com" 
+               class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition-colors inline-flex items-center justify-center">
+                <i class="fas fa-envelope mr-2"></i>
+                Envoyer un email
+            </a>
+            <a href="tel:+33123456789" 
+               class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg font-bold text-lg transition-colors inline-flex items-center justify-center">
+                <i class="fas fa-phone mr-2"></i>
+                Appeler maintenant
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section (optionnel) -->
+<section class="h-96 bg-gray-300 relative overflow-hidden">
+    <div class="absolute inset-0 flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-xl text-center">
+            <i class="fas fa-map-marker-alt text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">Paris, France</h3>
+            <p class="text-gray-600">Disponible pour des rencontres en personne</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Gestion du formulaire de contact
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        const button = this.querySelector('button[type="submit"]');
+        const buttonText = button.querySelector('span');
+        const originalText = buttonText.innerHTML;
+        
+        // Animation du bouton pendant l'envoi
+        button.disabled = true;
+        buttonText.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...';
+        
+        // Simuler un délai (remplacez par votre logique d'envoi réelle)
+        setTimeout(() => {
+            button.disabled = false;
+            buttonText.innerHTML = originalText;
+        }, 2000);
+    });
+    
+    // FAQ Accordéon
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('i');
+            
+            // Fermer tous les autres accordéons
+            document.querySelectorAll('.faq-content').forEach(otherContent => {
+                if (otherContent !== content) {
+                    otherContent.classList.add('hidden');
+                    otherContent.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle l'accordéon actuel
+            content.classList.toggle('hidden');
+            
+            if (content.classList.contains('hidden')) {
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+    
+    // Validation en temps réel
+    const inputs = document.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.hasAttribute('required') && !this.value.trim()) {
+                this.classList.add('border-red-500');
+                this.classList.remove('border-gray-300');
+            } else {
+                this.classList.remove('border-red-500');
+                this.classList.add('border-gray-300');
+            }
+        });
+        
+        input.addEventListener('input', function() {
+            if (this.classList.contains('border-red-500') && this.value.trim()) {
+                this.classList.remove('border-red-500');
+                this.classList.add('border-gray-300');
+            }
+        });
+    });
+    
+    // Animation au focus des inputs
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.querySelector('label')?.classList.add('text-blue-600');
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement.querySelector('label')?.classList.remove('text-blue-600');
+        });
+    });
+    
+    // Compteur de caractères pour le message
+    const messageTextarea = document.getElementById('message');
+    const maxLength = 1000;
+    
+    // Créer l'élément compteur
+    const counter = document.createElement('div');
+    counter.className = 'text-sm text-gray-500 mt-1 text-right';
+    counter.textContent = `0/${maxLength} caractères`;
+    messageTextarea.parentElement.appendChild(counter);
+    
+    messageTextarea.addEventListener('input', function() {
+        const length = this.value.length;
+        counter.textContent = `${length}/${maxLength} caractères`;
+        
+        if (length > maxLength * 0.9) {
+            counter.classList.add('text-yellow-600');
+        } else {
+            counter.classList.remove('text-yellow-600');
+        }
+        
+        if (length >= maxLength) {
+            counter.classList.add('text-red-600');
+            this.value = this.value.substring(0, maxLength);
+        } else {
+            counter.classList.remove('text-red-600');
+        }
+    });
+</script>
+{% endblock %}50 transition-colors">
+                    <span class="font-semibold">Quels types de projets acceptez-vous ?</span>
+                    <i class="fas fa-chevron-down transition-transform"></i>
+                </button>
+                <div class="faq-content px-6 pb-4 text-gray-600 hidden">
+                    J'accepte une large variété de projets : sites web, applications web, e-commerce, API, applications mobiles, etc. 
+                    Je travaille principalement avec les technologies modernes comme tailwindcss, Django, Node.js et Python.
+                </div>
+            </div>
+            
+            <div class="animate-on-scroll bg-white rounded-xl shadow-sm overflow-hidden">
+                <button class="faq-btn w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none hover:bg-gray-
+
+
+

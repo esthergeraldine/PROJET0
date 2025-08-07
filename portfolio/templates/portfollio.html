@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+
+{% block title %}Portfolio - Mes Projets{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Mon Portfolio</h1>
+        <p class="text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto">
+            Découvrez mes projets et réalisations dans le développement web
+        </p>
+    </div>
+</section>
+
+<!-- Filtres -->
+<section class="py-12 bg-white border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button class="filter-btn active bg-blue-600 text-white px-6 py-2 rounded-full font-semibold transition-colors" data-filter="all">
+                Tous les projets
+            </button>
+            {% for skill in skills %}
+            <button class="filter-btn bg-gray-200 text-gray-700 hover:bg-gray-300 px-6 py-2 rounded-full font-semibold transition-colors" data-filter="{{ skill.name|lower }}">
+                {{ skill.name }}
+            </button>
+            {% endfor %}
+        </div>
+        
+        <!-- Barre de recherche -->
+        <div class="max-w-md mx-auto">
+            <div class="relative">
+                <input type="text" id="project-search" placeholder="Rechercher un projet..." class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                    <i class="fas fa-search text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projets Grid -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for project in projects %}
+            <div class="project-card animate-on-scroll card-hover bg-white rounded-xl shadow-md overflow-hidden" 
+                 data-tags="{% for tech in project.technologies.all %}{{ tech.name|lower }} {% endfor %}">
+                {% if project.image %}
+                <div class="relative overflow-hidden group">
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="flex space-x-4">
+                            {% if project.github_url %}
+                            <a href="{{ project.github_url }}" target="_blank" class="bg-white text-gray-900 p-3 rounded-full hover:bg-gray-100 transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            {% endif %}
+                            {% if project.live_url %}
+                            <a href="{{ project.live_url }}" target="_blank" class="bg-white text-gray-900 p-3 rounded-full hover:bg-gray-100 transition-colors">
+                                <i class="fas fa-external-link-alt text-xl"></i>
+                            </a>
+                            {% endif %}
+                            <a href="{% url 'folio:project_detail' project.id %}" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors">
+                                <i class="fas fa-eye text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="w-full h-48 bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
+                    <i class="fas fa-code text-4xl text-white"></i>
+                </div>
+                {% endif %}
+                
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-xl font-bold">{{ project.title }}</h3>
+                        {% if project.featured %}
+                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Vedette</span>
+                        {% endif %}
+                    </div>
+                    <p class="text-gray-600 mb-4">{{ project.short_description }}</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        {% for tech in project.technologies.all %}
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">{{ tech.name }}</span>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-500">{{ project.created_date|date:"M Y" }}</span>
+                        <a href="{% url 'folio:project_detail' project.id %}" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">
+                            Voir détails <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-span-full text-center py-12">
+                <div class="max-w-md mx-auto">
+                    <i class="fas fa-folder-open text-6xl text-gray-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Aucun projet trouvé</h3>
+                    <p class="text-gray-500">Il n'y a pas encore de projets à afficher.</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Message "Aucun résultat" (masqué par défaut) -->
+        <div id="no-results" class="text-center py-12 hidden">
+            <div class="max-w-md mx-auto">
+                <i class="fas fa-search text-6xl text-gray-400 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-600 mb-2">Aucun projet trouvé</h3>
+                <p class="text-gray-500">Essayez de modifier vos critères de recherche.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistiques -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="animate-on-scroll">
+                <div class="text-3xl lg:text-4xl font-bold text-blue-600 mb-2">{{ projects.count }}</div>
+                <div class="text-gray-600">Projets Réalisés</div>
+            </div>
+            <div class="animate-on-scroll">
+                <div class="text-3xl lg:text-4xl font-bold text-green-600 mb-2">{{ skills.count }}</div>
+                <div class="text-gray-600">Technologies</div>
+            </div>
+            <div class="animate-on-scroll">
+                <div class="text-3xl lg:text-4xl font-bold text-purple-600 mb-2">3+</div>
+                <div class="text-gray-600">Années d'Expérience</div>
+            </div>
+            <div class="animate-on-scroll">
+                <div class="text-3xl lg:text-4xl font-bold text-red-600 mb-2">50+</div>
+                <div class="text-gray-600">Clients Satisfaits</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-20 gradient-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
+        <h2 class="text-4xl font-bold text-white mb-6">Un projet en tête ?</h2>
+        <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            Je suis disponible pour de nouveaux projets et collaborations. 
+            Parlons de votre vision et donnons-lui vie ensemble.
+        </p>
+        <a href="{% url 'folio:contact' %}" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition-colors inline-flex items-center">
+            Démarrons votre projet
+            <i class="fas fa-rocket ml-2"></i>
+        </a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        const searchInput = document.getElementById('project-search');
+        const noResults = document.getElementById('no-results');
+        
+        // Filtrage par catégorie
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Mise à jour des boutons actifs
+                filterBtns.forEach(b => b.classList.remove('active', 'bg-blue-600', 'text-white'));
+                filterBtns.forEach(b => b.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300'));
+                
+                this.classList.add('active', 'bg-blue-600', 'text-white');
+                this.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                
+                filterProjects();
+            });
+        });
+        
+        // Recherche en temps réel
+        searchInput.addEventListener('input', function() {
+            filterProjects();
+        });
+        
+        function filterProjects() {
+            const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+            const searchTerm = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+            
+            projectCards.forEach(card => {
+                const tags = card.getAttribute('data-tags').toLowerCase();
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                const matchesFilter = activeFilter === 'all' || tags.includes(activeFilter);
+                const matchesSearch = searchTerm === '' || 
+                    title.includes(searchTerm) || 
+                    description.includes(searchTerm) ||
+                    tags.includes(searchTerm);
+                
+                if (matchesFilter && matchesSearch) {
+                    card.style.display = 'block';
+                    card.classList.add('animate-fadeInUp');
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                    card.classList.remove('animate-fadeInUp');
+                }
+            });
+            
+            // Afficher/masquer le message "Aucun résultat"
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+        
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = Math.random() * 0.3 + 's';
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+        
+        projectCards.forEach(card => observer.observe(card));
+    });
+</script>
+{% endblock %}
+

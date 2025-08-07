@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+
+{% block title %}Accueil - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="gradient-bg text-white py-20 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="animate-on-scroll">
+                <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Salut, je suis
+                    <span class="text-yellow-300">{{ profile.user.first_name|default:"Développeur" }}</span>
+                </h1>
+                <p class="text-xl mb-8 text-gray-200">
+                    {{ profile.bio|default:"Développeur full-stack passionné par la création d'expériences web modernes et performantes." }}
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="{% url 'folio:portfolio' %}" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors">
+                        Voir mes projets
+                    </a>
+                    <a href="{% url 'folio:contact' %}" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold transition-colors">
+                        Me contacter
+                    </a>
+                </div>
+                
+                <!-- Réseaux sociaux -->
+                <div class="flex space-x-6 mt-8">
+                    {% if profile.github_url %}
+                    <a href="{{ profile.github_url }}" target="_blank" class="text-gray-200 hover:text-white text-2xl transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    {% endif %}
+                    {% if profile.linkedin_url %}
+                    <a href="{{ profile.linkedin_url }}" target="_blank" class="text-gray-200 hover:text-white text-2xl transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    {% endif %}
+                    {% if profile.twitter_url %}
+                    <a href="{{ profile.twitter_url }}" target="_blank" class="text-gray-200 hover:text-white text-2xl transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="animate-on-scroll">
+                {% if profile.avatar %}
+                <img src="{{ profile.avatar.url }}" alt="Photo de profil" class="w-80 h-80 rounded-full mx-auto object-cover shadow-2xl">
+                {% else %}
+                <div class="w-80 h-80 bg-white bg-opacity-20 rounded-full mx-auto flex items-center justify-center">
+                    <i class="fas fa-user text-8xl text-white opacity-50"></i>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Compétences Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold mb-4 gradient-text">Mes Compétences</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Technologies et outils que j'utilise pour créer des solutions innovantes
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {% for skill in skills %}
+            <div class="animate-on-scroll card-hover bg-gray-50 p-6 rounded-xl">
+                <div class="flex items-center mb-4">
+                    {% if skill.icon %}
+                    <i class="{{ skill.icon }} text-2xl text-blue-600 mr-3"></i>
+                    {% endif %}
+                    <h3 class="font-semibold text-lg">{{ skill.name }}</h3>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-1000" style="width: {{ skill.level }}%"></div>
+                </div>
+                <p class="text-sm text-gray-500 mt-2">{{ skill.level }}%</p>
+            </div>
+            {% empty %}
+            <div class="col-span-full text-center py-12">
+                <p class="text-gray-500">Aucune compétence ajoutée pour le moment.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Projets en vedette -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold mb-4 gradient-text">Projets en Vedette</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Découvrez quelques-uns de mes projets les plus récents
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {% for project in featured_projects %}
+            <div class="animate-on-scroll card-hover bg-white rounded-xl shadow-md overflow-hidden">
+                {% if project.image %}
+                <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-full h-48 object-cover">
+                {% else %}
+                <div class="w-full h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+                    <i class="fas fa-code text-4xl text-white"></i>
+                </div>
+                {% endif %}
+                
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">{{ project.title }}</h3>
+                    <p class="text-gray-600 mb-4">{{ project.short_description }}</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        {% for tech in project.technologies.all %}
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">{{ tech.name }}</span>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        {% if project.github_url %}
+                        <a href="{{ project.github_url }}" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        {% endif %}
+                        {% if project.live_url %}
+                        <a href="{{ project.live_url }}" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors">
+                            <i class="fas fa-external-link-alt text-xl"></i>
+                        </a>
+                        {% endif %}
+                        <a href="{% url 'folio:project_detail' project.id %}" class="text-gray-600 hover:text-blue-600 transition-colors ml-auto">
+                            Voir plus <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-span-full text-center py-12">
+                <p class="text-gray-500">Aucun projet en vedette pour le moment.</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center">
+            <a href="{% url 'folio:portfolio' %}" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                Voir tous mes projets
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Articles de blog récents -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold mb-4 gradient-text">Derniers Articles</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Mes réflexions sur le développement web et la technologie
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {% for post in latest_posts %}
+            <article class="animate-on-scroll card-hover bg-gray-50 rounded-xl overflow-hidden">
+                {% if post.featured_image %}
+                <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="w-full h-48 object-cover">
+                {% else %}
+                <div class="w-full h-48 bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
+                    <i class="fas fa-blog text-4xl text-white"></i>
+                </div>
+                {% endif %}
+                
+                <div class="p-6">
+                    {% if post.category %}
+                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mb-2">
+                        {{ post.category.name }}
+                    </span>
+                    {% endif %}
+                    
+                    <h3 class="text-xl font-bold mb-2 hover:text-blue-600 transition-colors">
+                        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                    </h3>
+                    <p class="text-gray-600 mb-4">{{ post.excerpt|truncatewords:20 }}</p>
+                    
+                    <div class="flex items-center justify-between text-sm text-gray-500">
+                        <span>{{ post.published_date|date:"d M Y" }}</span>
+                        <span><i class="fas fa-eye mr-1"></i>{{ post.views }} vues</span>
+                    </div>
+                </div>
+            </article>
+            {% empty %}
+            <div class="col-span-full text-center py-12">
+                <p class="text-gray-500">Aucun article publié pour le moment.</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center">
+            <a href="{% url 'folio:blog' %}" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                Voir tous les articles
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-20 gradient-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
+        <h2 class="text-4xl font-bold text-white mb-6">Prêt à collaborer ?</h2>
+        <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            Je suis toujours ouvert aux nouvelles opportunités et aux projets intéressants. 
+            N'hésitez pas à me contacter pour discuter de vos idées.
+        </p>
+        <a href="{% url 'folio:contact' %}" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition-colors inline-flex items-center">
+            Commençons un projet
+            <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+    </div>
+</section>
+{% endblock %}
