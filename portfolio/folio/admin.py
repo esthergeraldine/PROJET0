@@ -111,7 +111,7 @@ class EducationAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name', 'colored_name', 'post_count', 'slug']
+    list_display = ['name', 'color', 'post_count', 'slug']
     list_editable = ['color']
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ['name']

@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -101,7 +101,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 
 DATABASES = {
-    'default':dj_database_url.parse(config('DATABASE_URL'))
+    'default':dj_database_url.parse(config('DATABASE_URLS'))
 }
 
 # Password validation
