@@ -55,154 +55,609 @@
     </div>
 </section>
 
-<!-- Compétences -->
-<section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 animate-on-scroll">
-            <h2 class="text-4xl font-bold mb-4 gradient-text">Compétences Techniques</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                Technologies et outils que je maîtrise pour créer des solutions innovantes
-            </p>
-        </div>
-        
-        {% regroup skills by category as skills_by_category %}
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {% for category in skills_by_category %}
-            <div class="animate-on-scroll">
-                <h3 class="text-2xl font-bold mb-6 flex items-center">
-                    {% if category.grouper == 'frontend' %}
-                        <i class="fas fa-laptop-code text-blue-600 mr-3"></i>
-                        Frontend
-                    {% elif category.grouper == 'backend' %}
-                        <i class="fas fa-server text-green-600 mr-3"></i>
-                        Backend
-                    {% elif category.grouper == 'tools' %}
-                        <i class="fas fa-tools text-purple-600 mr-3"></i>
-                        Outils
-                    {% elif category.grouper == 'design' %}
-                        <i class="fas fa-paint-brush text-pink-600 mr-3"></i>
-                        Design
-                    {% endif %}
-                </h3>
-                
-                <div class="space-y-4">
-                    {% for skill in category.list %}
-                    <div class="bg-white p-4 rounded-lg shadow-sm">
-                        <div class="flex justify-between items-center mb-2">
-                            <div class="flex items-center">
-                                {% if skill.icon %}
-                                <i class="{{ skill.icon }} text-xl mr-3 text-gray-600"></i>
-                                {% endif %}
-                                <span class="font-semibold">{{ skill.name }}</span>
-                            </div>
-                            <span class="text-sm text-gray-500">{{ skill.level }}%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000" data-width="{{ skill.level }}"></div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% empty %}
-            <div class="col-span-full text-center py-12">
-                <p class="text-gray-500">Aucune compétence ajoutée pour le moment.</p>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
 
 <!-- Expérience -->
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 animate-on-scroll">
             <h2 class="text-4xl font-bold mb-4 gradient-text">Expérience Professionnelle</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 " id="titleUnderline"></div>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
                 Mon parcours professionnel et les expériences qui m'ont formé
             </p>
         </div>
+
+
         
-        <div class="relative">
-            <!-- Ligne verticale -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-blue-200"></div>
+    <div class="bg-white border-2 border-purple-500 rounded-2xl py-16">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Mes Compétences</h2>
+              
+                <p class="text-gray-800 text-lg">Technologies et frameworks que je maîtrise</p>
+            </div>
             
-            {% for experience in experiences %}
-            <div class="relative flex items-center mb-12 animate-on-scroll">
-                <div class="w-1/2 {% if forloop.counter|divisibleby:2 %}order-2 pl-8{% else %}pr-8 text-right{% endif %}">
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
-                        <div class="flex items-center {% if forloop.counter|divisibleby:2 %}justify-start{% else %}justify-end{% endif %} mb-2">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
-                                {{ experience.start_date|date:"Y" }} - 
-                                {% if experience.current %}
-                                    Présent
-                                {% else %}
-                                    {{ experience.end_date|date:"Y" }}
-                                {% endif %}
-                            </span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- HTML/CSS -->
+                <div class="skill-item">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                                <span class="text-white font-bold text-sm">HTML</span>
+                            </div>
+                            <span class="text-gray-700 font-semibold">HTML/CSS</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">{{ experience.position }}</h3>
-                        <h4 class="text-lg text-blue-600 mb-2">{{ experience.company }}</h4>
-                        {% if experience.location %}
-                        <p class="text-sm text-gray-500 mb-4">
-                            <i class="fas fa-map-marker-alt mr-1"></i>{{ experience.location }}
-                        </p>
-                        {% endif %}
-                        <p class="text-gray-600">{{ experience.description }}</p>
+                        <span class="text-purple-600 font-bold skill-percentage">90%</span>
+                    </div>
+                    <div class="bg-blue-100 rounded-full h-3 overflow-hidden">
+                        <div class="skill-bar bg-gradient-to-r from-blue-600 to-purple-600 h-full rounded-full" 
+                            data-width="90" style="width: 0%"></div>
                     </div>
                 </div>
-                
-                <!-- Point central -->
-                <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
+
+                <!-- JavaScript -->
+                <div class="skill-item">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                                <span class="text-white font-bold text-sm">JS</span>
+                            </div>
+                            <span class="text-gray-600 font-semibold">JavaScript</span>
+                        </div>
+                        <span class="text-purple-500 font-bold skill-percentage">85%</span>
+                    </div>
+                    <div class="bg-blue-100 rounded-full h-3 overflow-hidden">
+                        <div class="skill-bar bg-gradient-to-r from-blue-400 to-blue-600 h-full rounded-full" 
+                            data-width="85" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- javascript -->
+                <div class="skill-item">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
+                                <span class="text-gray-800 font-bold text-sm">⚛️</span>
+                            </div>
+                            <span class="text-gray-700 font-semibold">JavaScript</span>
+                        </div>
+                        <span class="text-purple-600 font-bold skill-percentage">80%</span>
+                    </div>
+                    <div class="bg-blue-100 rounded-full h-3 overflow-hidden">
+                        <div class="skill-bar bg-gradient-to-r from-blue-400 to-blue-600 h-full rounded-full" 
+                            data-width="80" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Node.js -->
+                <div class="skill-item">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                                <span class="text-white font-bold text-sm">N</span>
+                            </div>
+                            <span class="text-gray-700 font-semibold">Node.js</span>
+                        </div>
+                        <span class="text-purple-600 font-bold skill-percentage">75%</span>
+                    </div>
+                    <div class="bg-blue-100rounded-full h-3 overflow-hidden">
+                        <div class="skill-bar bg-gradient-to-r from-blue-400 to-blue-600 h-full rounded-full" 
+                            data-width="75" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Python -->
+                <div class="skill-item">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                                <span class="text-white font-bold text-sm">Py</span>
+                            </div>
+                            <span class="text-gray-700 font-semibold">Python</span>
+                        </div>
+                        <span class="text-blue-400 font-bold skill-percentage">70%</span>
+                    </div>
+                    <div class="bg-blue-100 rounded-full h-3 overflow-hidden">
+                        <div class="skill-bar bg-gradient-to-r from-blue-500 to-indigo-600 h-full rounded-full" 
+                            data-width="70" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- MongoDB -->
+                <div class="skill-item">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                                <span class="text-white font-bold text-sm">DB</span>
+                            </div>
+                            <span class="text-white font-semibold">MongoDB</span>
+                        </div>
+                        <span class="text-purple-500 font-bold skill-percentage">65%</span>
+                    </div>
+                    <div class="bg-blue-100 rounded-full h-3 overflow-hidden">
+                        <div class="skill-bar  bg-gradient-to-r from-blue-500 to-indigo-600  h-full rounded-full" 
+                            data-width="65" style="width: 0%"></div>
+                    </div>
+                </div>
             </div>
-            {% empty %}
-            <div class="text-center py-12">
-                <p class="text-gray-500">Aucune expérience ajoutée pour le moment.</p>
+
+            <!-- Statistiques globales -->
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center bg-blue-100 rounded-lg px-6 py-3 border border-gray-700">
+                    <span class="text-blue-600 mr-2">Niveau moyen:</span>
+                    <span class="text-purple-600 font-bold text-xl average-skill">0%</span>
+                </div>
             </div>
-            {% endfor %}
         </div>
-    </div>
-</section>
+ </div>
+    <script>
+        // Configuration des compétences
+        const skills = [
+            { name: 'HTML/CSS', percentage: 90, color: 'orange' },
+            { name: 'JavaScript', percentage: 85, color: 'yellow' },
+            { name: 'React.js', percentage: 80, color: 'blue' },
+            { name: 'Node.js', percentage: 75, color: 'green' },
+            { name: 'Python', percentage: 70, color: 'blue' },
+            { name: 'MongoDB', percentage: 65, color: 'green' }
+        ];
+
+        // Observer pour déclencher les animations
+       const observe = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateSkillBars(); // Assurez-vous que cette fonction est définie
+            observer.unobserve(entry.target); // On arrête d'observer après déclenchement
+        }
+    });
+}, {
+    threshold: 0.1 // Optionnel: déclenche quand 10% de l'élément est visible
+});
+
+        // Animation des barres de progression
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            const skillPercentages = document.querySelectorAll('.skill-percentage');
+            
+            skillBars.forEach((bar, index) => {
+                const targetWidth = parseInt(bar.getAttribute('data-width'));
+                const duration = 1500; // 1.5 secondes
+                const delay = index * 200; // Délai entre chaque barre
+                
+                setTimeout(() => {
+                    // Animation de la barre
+                    bar.style.transition = `width ${duration}ms cubic-bezier(0.4, 0, 0.2, 1)`;
+                    bar.style.width = targetWidth + '%';
+                    
+                    // Animation du pourcentage
+                    animateCounter(skillPercentages[index], 0, targetWidth, duration);
+                    
+                    // Effet de pulsation
+                    setTimeout(() => {
+                        bar.style.boxShadow = `0 0 20px ${getGlowColor(index)}`;
+                        setTimeout(() => {
+                            bar.style.boxShadow = 'none';
+                        }, 500);
+                    }, duration);
+                    
+                }, delay);
+            });
+            
+            // Calcul et animation de la moyenne
+            setTimeout(() => {
+                const average = skills.reduce((sum, skill) => sum + skill.percentage, 0) / skills.length;
+                animateCounter(document.querySelector('.average-skill'), 0, Math.round(average), 1000);
+            }, skills.length * 200 + 1500);
+        }
+
+        // Animation du compteur de pourcentage
+        function animateCounter(element, start, end, duration) {
+            const startTime = performance.now();
+            
+            function updateCounter(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeProgress = easeOutQuart(progress);
+                const current = Math.round(start + (end - start) * easeProgress);
+                
+                element.textContent = current + '%';
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                }
+            }
+            
+            requestAnimationFrame(updateCounter);
+        }
+
+        // Fonction d'easing
+        function easeOutQuart(x) {
+            return 1 - Math.pow(1 - x, 4);
+        }
+
+        // Couleurs de lueur pour chaque compétence
+        function getGlowColor(index) {
+            const colors = [
+                'rgba(249, 115, 22, 0.5)', // Orange
+                'rgba(245, 158, 11, 0.5)', // Yellow
+                'rgba(59, 130, 246, 0.5)',  // Blue
+                'rgba(34, 197, 94, 0.5)',   // Green
+                'rgba(59, 130, 246, 0.5)',  // Blue
+                'rgba(34, 197, 94, 0.5)'    // Green
+            ];
+            return colors[index];
+        }
+
+        // Effet de survol pour les barres de compétences
+        function addHoverEffects() {
+            const skillItems = document.querySelectorAll('.skill-item');
+            
+            skillItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'translateY(-2px)';
+                    item.style.transition = 'transform 0.3s ease';
+                    
+                    const bar = item.querySelector('.skill-bar');
+                    bar.style.filter = 'brightness(1.2)';
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'translateY(0)';
+                    
+                    const bar = item.querySelector('.skill-bar');
+                    bar.style.filter = 'brightness(1)';
+                });
+            });
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            const skillsSection = document.querySelector('.container');
+            observer.observe(skillsSection);
+            addHoverEffects();
+            
+            // Animation de pulsation pour les icônes
+            const icons = document.querySelectorAll('.skill-item > div > div > div');
+            setInterval(() => {
+                icons.forEach((icon, index) => {
+                    setTimeout(() => {
+                        icon.style.transform = 'scale(1.1)';
+                        icon.style.transition = 'transform 0.2s ease';
+                        setTimeout(() => {
+                            icon.style.transform = 'scale(1)';
+                        }, 200);
+                    }, index * 100);
+                });
+            }, 5000);
+        });
+    </script>
+   </section>
+
 
 <!-- Formation -->
 <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 animate-on-scroll">
             <h2 class="text-4xl font-bold mb-4 gradient-text">Formation</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 " id="titleUnderline"></div>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
                 Mon parcours académique et formations complémentaires
             </p>
         </div>
+    <div class="bg-gradient-to-br from-slate-50 to-blue-50 py-16">
+        <div class="container mx-auto px-6 max-w-6xl">
+       
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {% for edu in education %}
-            <div class="animate-on-scroll bg-white p-6 rounded-xl shadow-sm card-hover">
-                <div class="flex items-center justify-between mb-4">
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">
-                        {{ edu.start_date|date:"Y" }} - 
-                        {% if edu.current %}
-                            En cours
-                        {% else %}
-                            {{ edu.end_date|date:"Y" }}
-                        {% endif %}
-                    </span>
-                    <i class="fas fa-graduation-cap text-2xl text-green-600"></i>
+            <div class="relative">
+                <!-- Ligne centrale -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 h-full timeline-line" style="height:90 px;"></div>
+                
+                <!-- Container des diplômes -->
+                <div class="space-y-16">
+                    
+                    <!-- Diplôme 1 - À droite -->
+                    <div class="timeline-item flex items-center justify-center transform translate-y-10">
+                        <div class="w-5/12"></div>
+                        <div class="relative z-10">
+                            <div class="w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow-lg timeline-dot"></div>
+                        </div>
+                        <div class="w-5/12 pl-8">
+                            <div class="bg-white rounded-xl shadow-xl p-6 border-l-4 border-blue-500 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                        <span class="text-2xl">🎓</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <span class="text-blue-600 font-semibold text-sm">2024</span>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Master en Informatique</h3>
+                                        <p class="text-gray-600 mb-3">Spécialisation Développement Web et Intelligence Artificielle</p>
+                                        <div class="text-sm text-gray-500">
+                                            <p>📍 Université de Technologie</p>
+                                            <p class="mt-1">🏆 Mention Très Bien</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diplôme 2 - À gauche -->
+                    <div class="timeline-item flex items-center justify-center  transform translate-y-10">
+                        <div class="w-5/12 pr-8 text-right">
+                            <div class="bg-white rounded-xl shadow-xl p-6 border-r-4 border-purple-500 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                                <div class="flex items-start flex-row-reverse">
+                                    <div class="bg-purple-100 p-3 rounded-lg ml-4">
+                                        <span class="text-2xl">🎯</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <span class="text-purple-600 font-semibold text-sm">2022</span>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Licence Informatique</h3>
+                                        <p class="text-gray-600 mb-3">Programmation et Systèmes d'Information</p>
+                                        <div class="text-sm text-gray-500">
+                                            <p>📍 Institut Supérieur de Technologie</p>
+                                            <p class="mt-1">🏆 Major de Promotion</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-6 h-6 bg-purple-500 rounded-full border-4 border-white shadow-lg timeline-dot"></div>
+                        </div>
+                        <div class="w-5/12"></div>
+                    </div>
+
+                    <!-- Diplôme 3 - À droite -->
+                    <div class="timeline-item flex items-center justify-center transform translate-y-10">
+                        <div class="w-5/12"></div>
+                        <div class="relative z-10">
+                            <div class="w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow-lg timeline-dot"></div>
+                        </div>
+                        <div class="w-5/12 pl-8">
+                            <div class="bg-white rounded-xl shadow-xl p-6 border-l-4 border-green-500 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-3 rounded-lg mr-4">
+                                        <span class="text-2xl">📚</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <span class="text-green-600 font-semibold text-sm">2019</span>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-2">BTS SIO</h3>
+                                        <p class="text-gray-600 mb-3">Services Informatiques aux Organisations - Option SLAM</p>
+                                        <div class="text-sm text-gray-500">
+                                            <p>📍 Lycée Technique Paul Valéry</p>
+                                            <p class="mt-1">🏆 Mention Bien</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diplôme 4 - À gauche -->
+                    <div class="timeline-item flex items-center justify-center transform translate-y-10">
+                        <div class="w-5/12 pr-8 text-right">
+                            <div class="bg-white rounded-xl shadow-xl p-6 border-r-4 border-orange-500 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                                <div class="flex items-start flex-row-reverse">
+                                    <div class="bg-orange-100 p-3 rounded-lg ml-4">
+                                        <span class="text-2xl">🔬</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <span class="text-orange-600 font-semibold text-sm">2017</span>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Baccalauréat S</h3>
+                                        <p class="text-gray-600 mb-3">Sciences de l'Ingénieur - Option Informatique</p>
+                                        <div class="text-sm text-gray-500">
+                                            <p>📍 Lycée Jean Monnet</p>
+                                            <p class="mt-1">🏆 Mention Assez Bien</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow-lg timeline-dot"></div>
+                        </div>
+                        <div class="w-5/12"></div>
+                    </div>
+
+                    <!-- Diplôme 5 - À droite -->
+                    <div class="timeline-item flex items-center justify-center  transform translate-y-10">
+                        <div class="w-5/12"></div>
+                        <div class="relative z-10">
+                            <div class="w-6 h-6 bg-red-500 rounded-full border-4 border-white shadow-lg timeline-dot"></div>
+                        </div>
+                        <div class="w-5/12 pl-8">
+                            <div class="bg-white rounded-xl shadow-xl p-6 border-l-4 border-red-500 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                                <div class="flex items-start">
+                                    <div class="bg-red-100 p-3 rounded-lg mr-4">
+                                        <span class="text-2xl">🏅</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <span class="text-red-600 font-semibold text-sm">2016</span>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Certification Microsoft</h3>
+                                        <p class="text-gray-600 mb-3">Microsoft Technology Associate - Programming</p>
+                                        <div class="text-sm text-gray-500">
+                                            <p>📍 Centre de Formation Microsoft</p>
+                                            <p class="mt-1">🏆 Score: 850/1000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diplôme 6 - À gauche -->
+                    <div class="timeline-item flex items-center justify-center  transform ">
+                        <div class="w-5/12 pr-8 text-right">
+                            <div class="bg-white rounded-xl shadow-xl p-6 border-r-4 border-indigo-500 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                                <div class="flex items-start flex-row-reverse">
+                                    <div class="bg-indigo-100 p-3 rounded-lg ml-4">
+                                        <span class="text-2xl">💻</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <span class="text-indigo-600 font-semibold text-sm">2015</span>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Formation Web</h3>
+                                        <p class="text-gray-600 mb-3">Développement Frontend - HTML, CSS, JavaScript</p>
+                                        <div class="text-sm text-gray-500">
+                                            <p>📍 École du Web Digital</p>
+                                            <p class="mt-1">🏆 Projet Final Primé</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-6 h-6 bg-indigo-500 rounded-full border-4 border-white shadow-lg timeline-dot"></div>
+                        </div>
+                        <div class="w-5/12"></div>
+                    </div>
+
                 </div>
-                <h3 class="text-xl font-bold mb-2">{{ edu.degree }}</h3>
-                <h4 class="text-lg text-green-600 mb-2">{{ edu.field }}</h4>
-                <p class="text-gray-600 mb-4">{{ edu.institution }}</p>
-                {% if edu.description %}
-                <p class="text-sm text-gray-500">{{ edu.description }}</p>
-                {% endif %}
             </div>
-            {% empty %}
-            <div class="col-span-full text-center py-12">
-                <p class="text-gray-500">Aucune formation ajoutée pour le moment.</p>
+
+            <!-- Statistiques -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">7</div>
+                    <div class="text-gray-600">Années d'études</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                    <div class="text-3xl font-bold text-green-600 mb-2">6</div>
+                    <div class="text-gray-600">Diplômes obtenus</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">2</div>
+                    <div class="text-gray-600">Mentions bien</div>
+                </div>
             </div>
-            {% endfor %}
         </div>
+
+        <script>
+            // Observer pour les animations d'entrée
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Animation de la ligne centrale
+            function animateTimeline() {
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                const timelineLine = document.querySelector('.timeline-line');
+                
+                // Calculer la hauteur totale nécessaire
+                const container = document.querySelector('.space-y-16');
+                const totalHeight = container.offsetHeight;
+                
+                // Animer la ligne progressivement
+                timelineLine.style.transition = 'height 2s ease-in-out';
+                timelineLine.style.height = totalHeight + 'px';
+                
+                // Animer chaque élément avec un délai
+                timelineItems.forEach((item, index) => {
+                    item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    item.style.transitionDelay = (index * 0.3) + 's';
+                    observer.observe(item);
+                });
+            }
+
+            // Animation des points de la timeline
+            function animateDots() {
+                const dots = document.querySelectorAll('.timeline-dot');
+                
+                dots.forEach((dot, index) => {
+                    setTimeout(() => {
+                        dot.style.transform = 'scale(1.2)';
+                        dot.style.transition = 'transform 0.3s ease';
+                        
+                        // Effet de pulsation
+                        setTimeout(() => {
+                            dot.style.boxShadow = '0 0 20px rgba(59, 130, 246, 0.6)';
+                            setTimeout(() => {
+                                dot.style.transform = 'scale(1)';
+                                dot.style.boxShadow = '';
+                            }, 300);
+                        }, 200);
+                    }, index * 500);
+                });
+            }
+
+            // Parallax léger sur les cartes
+            function addParallaxEffect() {
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    const cards = document.querySelectorAll('.timeline-item > div:last-child > div, .timeline-item > div:first-child > div');
+                    
+                    cards.forEach((card, index) => {
+                        const speed = 0.1 + (index % 2) * 0.05;
+                        const yPos = -(scrolled * speed);
+                        card.style.transform = `translateY(${yPos}px) scale(1)`;
+                    });
+                });
+            }
+
+            // Effet de compteur pour les statistiques
+            function animateCounters() {
+                const counters = document.querySelectorAll('.text-3xl');
+                
+                counters.forEach(counter => {
+                    const target = parseInt(counter.textContent);
+                    let current = 0;
+                    const increment = target / 50;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.ceil(current);
+                        }
+                    }, 40);
+                });
+            }
+
+            // Initialisation
+            document.addEventListener('DOMContentLoaded', () => {
+                // Démarrer les animations après un court délai
+                setTimeout(() => {
+                    animateTimeline();
+                    animateDots();
+                    addParallaxEffect();
+                }, 500);
+                
+                // Observer pour les statistiques
+                const statsSection = document.querySelector('.grid');
+                const statsObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            statsObserver.unobserve(entry.target);
+                        }
+                    });
+                });
+                statsObserver.observe(statsSection);
+
+                // Animation périodique des points
+                setInterval(() => {
+                    const dots = document.querySelectorAll('.timeline-dot');
+                    dots.forEach((dot, index) => {
+                        setTimeout(() => {
+                            dot.style.transform = 'scale(1.1)';
+                            setTimeout(() => {
+                                dot.style.transform = 'scale(1)';
+                            }, 200);
+                        }, index * 100);
+                    });
+                }, 8000);
+            });
+        </script>
     </div>
+    
 </section>
 
 <!-- Call to Action -->

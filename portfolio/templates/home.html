@@ -62,6 +62,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 animate-on-scroll">
             <h2 class="text-4xl font-bold mb-4 gradient-text">Mes Compétences</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 " id="titleUnderline"></div>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
                 Technologies et outils que j'utilise pour créer des solutions innovantes
             </p>
@@ -95,6 +96,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 animate-on-scroll">
             <h2 class="text-4xl font-bold mb-4 gradient-text">Projets en Vedette</h2>
+           <div class="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 " id="titleUnderline"></div>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
                 Découvrez quelques-uns de mes projets les plus récents
             </p>
@@ -158,6 +160,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 animate-on-scroll">
             <h2 class="text-4xl font-bold mb-4 gradient-text">Derniers Articles</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 " id="titleUnderline"></div>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
                 Mes réflexions sur le développement web et la technologie
             </p>
@@ -207,6 +210,178 @@
     </div>
 </section>
 
+
+<!-- 
+<!-- templates/testimonials.html -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <!-- En-tête -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+                Témoignages Clients
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Découvrez ce que nos clients disent de nous
+            </p>
+        </div>
+
+        <!-- Carrousel -->
+        <div class="relative">
+            <div class="w-full flex justify-center items-center overflow-hidden">
+                <div id="testimonial-carousel" class="flex gap-8 transition-all duration-500">
+                    <!-- Les cartes seront injectées ici par JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Contrôles de navigation -->
+            <button id="prev-btn" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 bg-white p-3 rounded-full shadow-md hover:bg-gray-100 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button id="next-btn" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 bg-white p-3 rounded-full shadow-md hover:bg-gray-100 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const testimonials = [
+            {
+                quote: "Super service, je recommande vivement ! Le support était réactif et professionnel.",
+                author: "Alice Dupont",
+                role: "Directrice Marketing",
+                company: "Entreprise A",
+                rating: 5,
+                image: "https://randomuser.me/api/portraits/women/44.jpg"
+            },
+            {
+                quote: "Très satisfait de la qualité du travail fourni. L'équipe a su comprendre nos besoins spécifiques.",
+                author: "Bob Martin",
+                role: "CTO",
+                company: "Startup B",
+                rating: 4,
+                image: "https://randomuser.me/api/portraits/men/32.jpg"
+            },
+            {
+                quote: "Une expérience incroyable. Nous avons obtenu des résultats bien au-delà de nos attentes.",
+                author: "Claire Leroy",
+                role: "CEO",
+                company: "Société C",
+                rating: 5,
+                image: "https://randomuser.me/api/portraits/women/68.jpg"
+            },
+            {
+                quote: "Rapide et efficace. Le projet a été livré dans les temps et avec une grande qualité.",
+                author: "David Lambert",
+                role: "Responsable IT",
+                company: "Groupe D",
+                rating: 4,
+                image: "https://randomuser.me/api/portraits/men/75.jpg"
+            },
+            {
+                quote: "Je suis bluffé par la qualité et l'attention portée aux détails. À refaire sans hésiter.",
+                author: "Emma Rousseau",
+                role: "Chef de Projet",
+                company: "Organisation E",
+                rating: 5,
+                image: "https://randomuser.me/api/portraits/women/90.jpg"
+            }
+        ];
+
+        const carousel = document.getElementById("testimonial-carousel");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+        let currentIndex = 0;
+
+        function renderStars(rating) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += i <= rating 
+                    ? '<svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>'
+                    : '<svg class="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>';
+            }
+            return stars;
+        }
+
+        function renderCarousel(centerIndex) {
+            carousel.innerHTML = "";
+
+            // Affiche 3 témoignages à la fois (précédent, actuel, suivant)
+            const visibleIndices = [
+                (centerIndex - 1 + testimonials.length) % testimonials.length,
+                centerIndex,
+                (centerIndex + 1) % testimonials.length,
+            ];
+
+            visibleIndices.forEach((i, idx) => {
+                const testimonial = testimonials[i];
+                const card = document.createElement("div");
+                card.className = `testimonial-card w-80 flex-shrink-0 cursor-pointer transition-all duration-300 ease-in-out rounded-xl shadow-lg p-6 bg-white ${
+                    idx === 1 
+                        ? "scale-110 z-10 border-2 border-indigo-100" 
+                        : "scale-90 opacity-80 hover:opacity-100"
+                }`;
+
+                card.innerHTML = `
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full object-cover mr-4" src="${testimonial.image}" alt="${testimonial.author}">
+                        <div>
+                            <h4 class="font-bold text-gray-800">${testimonial.author}</h4>
+                            <p class="text-sm text-gray-500">${testimonial.role}, ${testimonial.company}</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        ${renderStars(testimonial.rating)}
+                    </div>
+                    <p class="text-gray-600 italic">"${testimonial.quote}"</p>
+                `;
+
+                card.addEventListener("click", () => {
+                    currentIndex = i;
+                    renderCarousel(currentIndex);
+                });
+
+                carousel.appendChild(card);
+            });
+        }
+
+        // Navigation
+        prevBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+            renderCarousel(currentIndex);
+        });
+
+        nextBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            renderCarousel(currentIndex);
+        });
+
+        // Initial render
+        renderCarousel(currentIndex);
+
+        // Auto-rotation (optionnel)
+        let interval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            renderCarousel(currentIndex);
+        }, 5000);
+
+        // Pause auto-rotation on hover
+        carousel.addEventListener("mouseenter", () => clearInterval(interval));
+        carousel.addEventListener("mouseleave", () => {
+            interval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                renderCarousel(currentIndex);
+            }, 5000);
+        });
+    });
+    </script>
+</section>
+
 <!-- Call to Action -->
 <section class="py-20 gradient-bg">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
@@ -221,4 +396,9 @@
         </a>
     </div>
 </section>
+
+
+
+
+
 {% endblock %}

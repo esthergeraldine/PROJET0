@@ -200,3 +200,1024 @@ WARNING 2025-08-07 13:48:30,880 log 20748 3100 Not Found: /home
 WARNING 2025-08-07 13:48:30,881 basehttp 20748 3100 "GET /home HTTP/1.1" 404 4755
 WARNING 2025-08-07 13:49:31,686 log 20748 14176 Not Found: /home/
 WARNING 2025-08-07 13:49:31,687 basehttp 20748 14176 "GET /home/ HTTP/1.1" 404 4758
+INFO 2025-08-07 15:30:02,878 autoreload 22924 24316 Watching for file changes with StatReloader
+WARNING 2025-08-07 15:30:51,599 log 22924 8812 Not Found: /home
+WARNING 2025-08-07 15:30:51,600 basehttp 22924 8812 "GET /home HTTP/1.1" 404 4755
+WARNING 2025-08-07 15:30:52,524 log 22924 8812 Not Found: /home
+WARNING 2025-08-07 15:30:52,525 basehttp 22924 8812 "GET /home HTTP/1.1" 404 4755
+WARNING 2025-08-07 15:31:06,225 log 22924 8812 Not Found: /home/
+WARNING 2025-08-07 15:31:06,226 basehttp 22924 8812 "GET /home/ HTTP/1.1" 404 4758
+WARNING 2025-08-07 15:33:47,783 log 22924 8812 Not Found: /home
+WARNING 2025-08-07 15:33:47,784 basehttp 22924 8812 "GET /home HTTP/1.1" 404 4755
+ERROR 2025-08-07 15:34:04,854 log 22924 8812 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py", line 39, in home
+    return render(request, 'home.html', context)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' == 'success' and 'green' or 'red'' from 'message.tags == 'success' and 'green' or 'red''
+INFO 2025-08-07 15:34:04,901 basehttp 22924 8812 - Broken pipe from ('127.0.0.1', 6557)
+ERROR 2025-08-07 15:34:11,014 log 22924 22968 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py", line 39, in home
+    return render(request, 'home.html', context)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' == 'success' and 'green' or 'red'' from 'message.tags == 'success' and 'green' or 'red''
+ERROR 2025-08-07 15:34:11,047 basehttp 22924 22968 "GET / HTTP/1.1" 500 238350
+INFO 2025-08-07 15:36:16,396 basehttp 22924 22968 "GET / HTTP/1.1" 200 15581
+INFO 2025-08-07 15:36:16,584 basehttp 22924 22968 "GET /static/src/output.css HTTP/1.1" 200 162317
+ERROR 2025-08-07 15:36:38,571 log 22924 22968 Internal Server Error: /contact/
+Traceback (most recent call last):
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py", line 207, in contact
+    return render(request, 'portfolio/contact.html')
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: portfolio/contact.html
+ERROR 2025-08-07 15:36:38,575 basehttp 22924 22968 "GET /contact/ HTTP/1.1" 500 92263
+INFO 2025-08-07 16:42:31,612 autoreload 5576 15064 Watching for file changes with StatReloader
+INFO 2025-08-07 16:43:42,314 basehttp 5576 7508 "GET / HTTP/1.1" 200 15581
+INFO 2025-08-07 16:43:42,496 basehttp 5576 7508 "GET /static/src/output.css HTTP/1.1" 200 161280
+ERROR 2025-08-07 16:44:14,230 log 5576 20928 Internal Server Error: /contact/
+Traceback (most recent call last):
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py", line 207, in contact
+    return render(request, 'portfolio/contact.html')
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: portfolio/contact.html
+ERROR 2025-08-07 16:44:14,237 basehttp 5576 20928 "GET /contact/ HTTP/1.1" 500 92263
+ERROR 2025-08-07 16:44:14,696 log 5576 7508 Internal Server Error: /portfolio/
+Traceback (most recent call last):
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py", line 71, in portfolio
+    return render(request, 'portfolio.html', context)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: portfolio.html
+INFO 2025-08-07 16:44:14,705 basehttp 5576 7508 - Broken pipe from ('127.0.0.1', 7346)
+ERROR 2025-08-07 16:44:16,900 log 5576 24104 Internal Server Error: /portfolio/
+Traceback (most recent call last):
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py", line 71, in portfolio
+    return render(request, 'portfolio.html', context)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: portfolio.html
+INFO 2025-08-07 16:44:16,904 basehttp 5576 24104 - Broken pipe from ('127.0.0.1', 7348)
+INFO 2025-08-07 16:48:09,270 autoreload 20936 8808 Watching for file changes with StatReloader
+INFO 2025-08-08 02:48:24,586 autoreload 15092 15088 Watching for file changes with StatReloader
+INFO 2025-08-08 02:49:35,844 basehttp 15092 17032 "GET / HTTP/1.1" 200 15581
+INFO 2025-08-08 02:49:36,152 basehttp 15092 17032 "GET /static/src/output.css HTTP/1.1" 200 161280
+INFO 2025-08-08 02:49:54,817 basehttp 15092 17032 "GET /about/ HTTP/1.1" 200 16131
+WARNING 2025-08-08 02:49:54,934 log 15092 17032 Not Found: /favicon.ico
+WARNING 2025-08-08 02:49:54,952 basehttp 15092 17032 "GET /favicon.ico HTTP/1.1" 404 4776
+ERROR 2025-08-08 02:51:01,412 log 15092 17032 Internal Server Error: /portfolio/
+Traceback (most recent call last):
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py", line 71, in portfolio
+    return render(request, 'portfolio.html', context)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: portfolio.html
+ERROR 2025-08-08 02:51:01,421 basehttp 15092 17032 "GET /portfolio/ HTTP/1.1" 500 93188
+INFO 2025-08-08 03:02:14,205 basehttp 15092 12796 "GET /about/ HTTP/1.1" 200 27753
+INFO 2025-08-08 03:02:53,650 basehttp 15092 12796 "GET /about/ HTTP/1.1" 200 27753
+INFO 2025-08-08 03:05:52,400 basehttp 15092 12796 "GET /about/ HTTP/1.1" 200 26984
+INFO 2025-08-08 03:08:55,186 basehttp 15092 12796 "GET /about/ HTTP/1.1" 200 27422
+INFO 2025-08-08 03:12:33,098 basehttp 15092 12796 "GET /about/ HTTP/1.1" 200 27433
+INFO 2025-08-08 03:15:59,697 basehttp 15092 12796 "GET /about/ HTTP/1.1" 200 27443
+INFO 2025-08-08 03:24:16,199 basehttp 15092 13896 "GET /about/ HTTP/1.1" 200 27448
+INFO 2025-08-08 03:28:05,391 basehttp 15092 13896 "GET /about/ HTTP/1.1" 200 27454
+INFO 2025-08-08 03:29:15,146 basehttp 15092 13896 - Broken pipe from ('127.0.0.1', 2183)
+INFO 2025-08-08 03:29:16,972 basehttp 15092 1584 "GET /about/ HTTP/1.1" 200 27457
+INFO 2025-08-08 03:33:24,584 basehttp 15092 1584 "GET /about/ HTTP/1.1" 200 43882
+INFO 2025-08-08 03:35:14,655 basehttp 15092 1584 "GET /about/ HTTP/1.1" 200 44838
+INFO 2025-08-08 03:39:07,651 basehttp 15092 1584 "GET /about/ HTTP/1.1" 200 44843
+INFO 2025-08-08 03:39:38,645 basehttp 15092 1584 "GET / HTTP/1.1" 200 15581
+INFO 2025-08-08 03:39:52,302 basehttp 15092 1584 - Broken pipe from ('127.0.0.1', 2216)
+INFO 2025-08-08 03:39:53,575 basehttp 15092 20432 - Broken pipe from ('127.0.0.1', 2257)
+INFO 2025-08-08 03:39:54,561 basehttp 15092 20168 - Broken pipe from ('127.0.0.1', 2268)
+INFO 2025-08-08 03:39:54,868 basehttp 15092 19584 "GET /about/ HTTP/1.1" 200 44843
+INFO 2025-08-08 03:43:57,007 basehttp 15092 19584 "GET /about/ HTTP/1.1" 200 44840
+INFO 2025-08-08 03:46:00,401 basehttp 15092 19584 "GET /about/ HTTP/1.1" 200 44846
+INFO 2025-08-08 03:46:28,992 basehttp 15092 19584 "GET / HTTP/1.1" 200 15581
+INFO 2025-08-08 03:46:47,924 basehttp 15092 20804 "GET /about/ HTTP/1.1" 200 44846
+INFO 2025-08-08 03:46:48,284 basehttp 15092 19584 - Broken pipe from ('127.0.0.1', 2270)
+ERROR 2025-08-08 03:47:01,096 log 15092 20804 Internal Server Error: /portfolio/
+Traceback (most recent call last):
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py", line 71, in portfolio
+    return render(request, 'portfolio.html', context)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: portfolio.html
+ERROR 2025-08-08 03:47:01,103 basehttp 15092 20804 "GET /portfolio/ HTTP/1.1" 500 93188
+INFO 2025-08-08 03:50:05,145 autoreload 22352 22360 Watching for file changes with StatReloader
+INFO 2025-08-08 03:50:19,713 basehttp 22352 7852 "GET /about/ HTTP/1.1" 200 44846
+ERROR 2025-08-08 03:50:31,422 log 22352 7852 Internal Server Error: /portfolio/
+Traceback (most recent call last):
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py", line 71, in portfolio
+    return render(request, 'portfolio.html', context)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: portfolio.html
+ERROR 2025-08-08 03:50:31,430 basehttp 22352 7852 "GET /portfolio/ HTTP/1.1" 500 93188
+INFO 2025-08-08 03:57:07,044 autoreload 3264 1216 Watching for file changes with StatReloader
+INFO 2025-08-08 03:57:22,369 basehttp 3264 20396 "GET /portfolio/ HTTP/1.1" 200 18069
+INFO 2025-08-08 03:57:22,591 basehttp 3264 20396 "GET /static/src/output.css HTTP/1.1" 200 166721
+ERROR 2025-08-08 03:58:02,171 log 3264 20396 Internal Server Error: /blog/
+Traceback (most recent call last):
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py", line 128, in blog
+    return render(request, 'blog_list.html', context)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\base.py", line 590, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 294: 'block'. Looking for one of: endblock.
+ERROR 2025-08-08 03:58:02,200 basehttp 3264 20396 "GET /blog/ HTTP/1.1" 500 189642
+INFO 2025-08-08 04:07:09,402 autoreload 9284 21836 Watching for file changes with StatReloader
+INFO 2025-08-08 04:07:24,232 basehttp 9284 22472 "GET /blog/ HTTP/1.1" 200 14610
+INFO 2025-08-08 04:07:24,257 basehttp 9284 22472 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:08:36,840 basehttp 9284 22472 "GET /blog/ HTTP/1.1" 200 14611
+INFO 2025-08-08 04:09:00,671 basehttp 9284 22472 "GET /blog/ HTTP/1.1" 200 14610
+INFO 2025-08-08 04:09:51,412 basehttp 9284 22472 "GET /blog/ HTTP/1.1" 200 14611
+INFO 2025-08-08 04:09:51,429 basehttp 9284 22472 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:11:12,558 basehttp 9284 22472 "GET /blog/ HTTP/1.1" 200 14611
+INFO 2025-08-08 04:11:18,718 basehttp 9284 22472 "GET /blog/?search= HTTP/1.1" 200 14611
+INFO 2025-08-08 04:13:03,029 basehttp 9284 22472 "GET /blog/? HTTP/1.1" 200 14611
+INFO 2025-08-08 04:13:03,183 basehttp 9284 22472 "GET /static/src/output.css HTTP/1.1" 200 166851
+ERROR 2025-08-08 04:13:39,038 log 9284 22472 Internal Server Error: /contact/
+Traceback (most recent call last):
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py", line 207, in contact
+    return render(request, 'portfolio/contact.html')
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\PATRIC-JR\Desktop\projet0\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: portfolio/contact.html
+ERROR 2025-08-08 04:13:39,046 basehttp 9284 22472 "GET /contact/ HTTP/1.1" 500 92269
+INFO 2025-08-08 04:14:17,538 autoreload 9284 21836 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py changed, reloading.
+INFO 2025-08-08 04:14:19,672 autoreload 22344 26532 Watching for file changes with StatReloader
+INFO 2025-08-08 04:14:30,504 autoreload 22344 26532 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py changed, reloading.
+INFO 2025-08-08 04:14:31,999 autoreload 26056 25668 Watching for file changes with StatReloader
+INFO 2025-08-08 04:14:42,323 autoreload 26056 25668 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\folio\views.py changed, reloading.
+INFO 2025-08-08 04:14:44,171 autoreload 26476 26480 Watching for file changes with StatReloader
+INFO 2025-08-08 04:14:47,402 basehttp 26476 26408 "GET /contact/ HTTP/1.1" 200 28104
+INFO 2025-08-08 04:14:47,447 basehttp 26476 26408 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:20:12,462 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 46358
+INFO 2025-08-08 04:20:12,622 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 200 172539
+INFO 2025-08-08 04:22:00,634 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 45011
+INFO 2025-08-08 04:22:00,672 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:24:10,179 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44284
+INFO 2025-08-08 04:24:10,214 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:28:05,277 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44292
+INFO 2025-08-08 04:28:05,320 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:29:37,449 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44264
+INFO 2025-08-08 04:29:37,491 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:30:52,339 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44284
+INFO 2025-08-08 04:30:52,387 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 200 174022
+INFO 2025-08-08 04:31:11,177 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44292
+INFO 2025-08-08 04:31:11,221 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:31:12,384 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44292
+INFO 2025-08-08 04:31:42,417 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44292
+INFO 2025-08-08 04:31:42,452 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:31:46,684 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44292
+INFO 2025-08-08 04:31:46,916 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44292
+INFO 2025-08-08 04:31:47,166 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44292
+INFO 2025-08-08 04:32:23,284 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44264
+INFO 2025-08-08 04:32:23,385 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:33:17,491 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44299
+INFO 2025-08-08 04:33:17,536 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:34:03,800 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44341
+INFO 2025-08-08 04:34:03,840 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:34:05,590 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44341
+INFO 2025-08-08 04:34:05,833 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44341
+INFO 2025-08-08 04:34:09,780 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44341
+INFO 2025-08-08 04:34:11,188 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44341
+INFO 2025-08-08 04:34:11,462 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44341
+INFO 2025-08-08 04:34:42,180 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44306
+INFO 2025-08-08 04:34:42,206 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:34:43,334 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44306
+INFO 2025-08-08 04:34:43,584 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44306
+INFO 2025-08-08 04:34:43,825 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44306
+INFO 2025-08-08 04:34:44,114 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44306
+INFO 2025-08-08 04:34:45,021 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44306
+INFO 2025-08-08 04:34:45,357 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44306
+INFO 2025-08-08 04:34:45,686 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44306
+INFO 2025-08-08 04:36:31,630 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44319
+INFO 2025-08-08 04:36:31,659 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:36:33,278 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44319
+INFO 2025-08-08 04:36:33,597 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44319
+INFO 2025-08-08 04:36:54,357 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44319
+INFO 2025-08-08 04:36:57,128 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44319
+INFO 2025-08-08 04:36:57,462 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44319
+INFO 2025-08-08 04:40:59,728 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44354
+INFO 2025-08-08 04:40:59,759 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 200 170275
+INFO 2025-08-08 04:41:51,522 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44387
+INFO 2025-08-08 04:41:51,543 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:42:40,877 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44456
+INFO 2025-08-08 04:42:40,919 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 200 170486
+INFO 2025-08-08 04:43:08,259 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44457
+INFO 2025-08-08 04:43:08,301 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:44:29,642 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44422
+INFO 2025-08-08 04:44:29,673 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:45:12,111 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44423
+INFO 2025-08-08 04:45:12,149 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:45:52,443 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44458
+INFO 2025-08-08 04:45:52,477 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:47:08,752 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44528
+INFO 2025-08-08 04:47:08,776 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:48:07,346 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44522
+INFO 2025-08-08 04:48:07,374 basehttp 26476 26956 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:48:08,222 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44522
+INFO 2025-08-08 04:48:08,478 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44522
+INFO 2025-08-08 04:48:08,734 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44522
+INFO 2025-08-08 04:48:10,270 basehttp 26476 26956 "GET /contact/ HTTP/1.1" 200 44522
+INFO 2025-08-08 04:48:51,627 basehttp 26476 30612 "GET /contact/ HTTP/1.1" 200 44524
+INFO 2025-08-08 04:48:51,650 basehttp 26476 30612 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:48:56,681 basehttp 26476 30612 "GET /contact/ HTTP/1.1" 200 44524
+INFO 2025-08-08 04:49:45,483 basehttp 26476 30612 "GET /contact/ HTTP/1.1" 200 44518
+INFO 2025-08-08 04:49:45,510 basehttp 26476 30612 "GET /static/src/output.css HTTP/1.1" 200 172096
+INFO 2025-08-08 04:50:23,298 basehttp 26476 30612 "GET /contact/ HTTP/1.1" 200 44517
+INFO 2025-08-08 04:50:23,347 basehttp 26476 30612 "GET /static/src/output.css HTTP/1.1" 200 172327
+INFO 2025-08-08 04:51:10,497 basehttp 26476 30612 "GET /contact/ HTTP/1.1" 200 44535
+INFO 2025-08-08 04:51:10,520 basehttp 26476 30612 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 04:56:25,243 basehttp 26476 36972 "GET /contact/ HTTP/1.1" 200 42018
+INFO 2025-08-08 04:56:25,289 basehttp 26476 36972 "GET /static/src/output.css HTTP/1.1" 200 173512
+INFO 2025-08-08 05:02:31,823 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42303
+INFO 2025-08-08 05:02:31,846 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:05:58,496 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42852
+INFO 2025-08-08 05:05:58,519 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:06:49,702 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42021
+INFO 2025-08-08 05:07:20,464 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42843
+INFO 2025-08-08 05:07:20,487 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:08:18,208 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42860
+INFO 2025-08-08 05:09:25,316 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42862
+INFO 2025-08-08 05:09:25,340 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:10:08,060 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42865
+INFO 2025-08-08 05:10:30,129 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42865
+INFO 2025-08-08 05:11:02,923 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42835
+INFO 2025-08-08 05:11:02,960 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 200 173578
+INFO 2025-08-08 05:12:01,707 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42832
+INFO 2025-08-08 05:12:01,741 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 200 173691
+INFO 2025-08-08 05:12:43,690 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42847
+INFO 2025-08-08 05:12:43,725 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 200 173757
+INFO 2025-08-08 05:13:25,652 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42849
+INFO 2025-08-08 05:13:25,684 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 200 173832
+INFO 2025-08-08 05:13:27,559 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42849
+INFO 2025-08-08 05:13:27,586 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:13:41,243 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42847
+INFO 2025-08-08 05:13:41,273 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:13:42,063 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42847
+INFO 2025-08-08 05:14:13,899 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42844
+INFO 2025-08-08 05:14:13,942 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:14:21,048 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:17:46,631 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42846
+INFO 2025-08-08 05:17:46,664 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:17:48,092 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42846
+INFO 2025-08-08 05:17:48,772 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42846
+INFO 2025-08-08 05:17:50,307 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42846
+INFO 2025-08-08 05:18:33,736 basehttp 26476 35980 "GET /contact/ HTTP/1.1" 200 42855
+INFO 2025-08-08 05:18:33,761 basehttp 26476 35980 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:19:07,003 basehttp 26476 42568 "GET /contact/ HTTP/1.1" 200 42857
+INFO 2025-08-08 05:19:07,028 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:20:27,233 basehttp 26476 42568 "GET /blog/ HTTP/1.1" 200 14611
+INFO 2025-08-08 05:20:27,256 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:20:34,604 basehttp 26476 42568 "GET /portfolio/ HTTP/1.1" 200 18069
+INFO 2025-08-08 05:20:47,136 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44846
+INFO 2025-08-08 05:22:55,558 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44845
+INFO 2025-08-08 05:22:55,590 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:23:46,483 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44846
+INFO 2025-08-08 05:24:52,224 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44838
+INFO 2025-08-08 05:24:52,257 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 200 173893
+INFO 2025-08-08 05:26:56,524 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44969
+INFO 2025-08-08 05:26:56,561 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 200 174524
+INFO 2025-08-08 05:27:15,415 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44960
+INFO 2025-08-08 05:27:15,451 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:27:48,997 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44971
+INFO 2025-08-08 05:27:49,036 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:29:39,851 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44987
+INFO 2025-08-08 05:29:39,880 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:30:20,454 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44984
+INFO 2025-08-08 05:30:20,478 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:30:44,937 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44986
+INFO 2025-08-08 05:30:44,964 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 200 174588
+INFO 2025-08-08 05:31:07,806 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44987
+INFO 2025-08-08 05:31:07,824 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:32:13,053 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44986
+INFO 2025-08-08 05:32:13,080 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:33:41,211 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44984
+INFO 2025-08-08 05:33:41,233 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:34:34,782 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44987
+INFO 2025-08-08 05:34:34,806 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:35:25,683 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44988
+INFO 2025-08-08 05:35:25,713 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:35:54,365 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44987
+INFO 2025-08-08 05:35:54,387 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:37:18,110 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44992
+INFO 2025-08-08 05:37:18,142 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:38:50,415 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 44996
+INFO 2025-08-08 05:38:50,439 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:39:44,653 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 45011
+INFO 2025-08-08 05:39:44,676 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:40:08,728 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 45012
+INFO 2025-08-08 05:41:49,401 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 45010
+INFO 2025-08-08 05:41:49,425 basehttp 26476 42568 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:42:13,326 basehttp 26476 42568 "GET /about/ HTTP/1.1" 200 45007
+INFO 2025-08-08 05:51:18,254 basehttp 26476 50340 "GET /about/ HTTP/1.1" 200 45004
+INFO 2025-08-08 05:51:18,282 basehttp 26476 50340 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:51:50,314 basehttp 26476 50340 "GET /blog/ HTTP/1.1" 200 14611
+INFO 2025-08-08 05:51:54,306 basehttp 26476 50340 "GET /contact/ HTTP/1.1" 200 42857
+INFO 2025-08-08 05:52:02,892 basehttp 26476 50340 "GET /about/ HTTP/1.1" 200 45007
+INFO 2025-08-08 05:52:12,611 basehttp 26476 50340 "GET / HTTP/1.1" 200 15581
+INFO 2025-08-08 05:52:35,053 basehttp 26476 50340 "GET /about/ HTTP/1.1" 200 45007
+INFO 2025-08-08 05:54:23,384 basehttp 26476 50340 "GET /about/ HTTP/1.1" 200 45129
+INFO 2025-08-08 05:54:23,407 basehttp 26476 50340 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 05:54:26,942 basehttp 26476 50340 - Broken pipe from ('127.0.0.1', 3234)
+INFO 2025-08-08 05:54:29,608 basehttp 26476 52688 "GET / HTTP/1.1" 200 15946
+INFO 2025-08-08 05:54:41,430 basehttp 26476 52688 "GET /blog/ HTTP/1.1" 200 14611
+INFO 2025-08-08 05:54:50,951 basehttp 26476 52688 "GET /portfolio/ HTTP/1.1" 200 18069
+INFO 2025-08-08 05:55:01,123 basehttp 26476 52688 "GET /contact/ HTTP/1.1" 200 42857
+INFO 2025-08-08 05:55:29,828 basehttp 26476 52688 "GET / HTTP/1.1" 200 15946
+INFO 2025-08-08 05:55:40,730 basehttp 26476 52688 "GET /contact/ HTTP/1.1" 200 42857
+INFO 2025-08-08 05:55:53,390 basehttp 26476 52688 - Broken pipe from ('127.0.0.1', 3261)
+INFO 2025-08-08 05:55:55,172 basehttp 26476 52988 "GET /blog/ HTTP/1.1" 200 14611
+INFO 2025-08-08 05:56:03,192 basehttp 26476 52988 - Broken pipe from ('127.0.0.1', 3273)
+INFO 2025-08-08 05:56:05,549 basehttp 26476 52316 "GET / HTTP/1.1" 200 15946
+INFO 2025-08-08 05:56:10,069 basehttp 26476 52316 "GET /contact/ HTTP/1.1" 200 42857
+INFO 2025-08-08 05:56:15,629 basehttp 26476 52316 - Broken pipe from ('127.0.0.1', 3277)
+INFO 2025-08-08 05:56:16,576 basehttp 26476 52828 - Broken pipe from ('127.0.0.1', 3280)
+INFO 2025-08-08 05:56:20,030 basehttp 26476 52272 "GET / HTTP/1.1" 200 15946
+INFO 2025-08-08 05:56:24,428 basehttp 26476 52272 "GET /portfolio/ HTTP/1.1" 200 18069
+INFO 2025-08-08 06:00:20,266 basehttp 26476 52272 "GET /portfolio/ HTTP/1.1" 200 18069
+INFO 2025-08-08 06:00:20,291 basehttp 26476 52272 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 06:08:09,476 basehttp 26476 45428 - Broken pipe from ('127.0.0.1', 3346)
+INFO 2025-08-08 06:08:11,866 basehttp 26476 37056 "GET / HTTP/1.1" 200 33965
+INFO 2025-08-08 06:08:11,945 basehttp 26476 37056 "GET /static/src/output.css HTTP/1.1" 200 184002
+INFO 2025-08-08 06:09:54,681 basehttp 26476 37056 "GET / HTTP/1.1" 200 17780
+INFO 2025-08-08 06:09:54,704 basehttp 26476 37056 "GET /static/src/output.css HTTP/1.1" 200 185296
+INFO 2025-08-08 06:11:30,510 basehttp 26476 37056 "GET / HTTP/1.1" 200 17782
+INFO 2025-08-08 06:11:30,531 basehttp 26476 37056 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 06:14:27,803 basehttp 26476 37056 "GET / HTTP/1.1" 200 18159
+INFO 2025-08-08 06:14:27,831 basehttp 26476 37056 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 06:15:28,668 basehttp 26476 37056 "GET / HTTP/1.1" 200 18159
+INFO 2025-08-08 06:15:28,696 basehttp 26476 37056 "GET /static/src/output.css HTTP/1.1" 200 185347
+INFO 2025-08-08 06:20:33,825 basehttp 26476 59100 "GET / HTTP/1.1" 200 18159
+INFO 2025-08-08 06:20:33,860 basehttp 26476 59100 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 06:21:04,627 basehttp 26476 59100 "GET / HTTP/1.1" 200 18160
+INFO 2025-08-08 06:28:46,881 basehttp 26476 59780 "GET / HTTP/1.1" 200 20347
+INFO 2025-08-08 06:28:46,906 basehttp 26476 59780 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 06:29:22,256 basehttp 26476 59780 "GET / HTTP/1.1" 200 20347
+INFO 2025-08-08 06:30:05,921 basehttp 26476 59780 "GET /portfolio/ HTTP/1.1" 200 18090
+INFO 2025-08-08 06:30:26,797 basehttp 26476 59780 "GET /contact/ HTTP/1.1" 200 42878
+INFO 2025-08-08 06:30:26,826 basehttp 26476 59780 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 06:31:13,518 basehttp 26476 59780 "GET /blog/ HTTP/1.1" 200 14632
+INFO 2025-08-08 06:31:26,893 basehttp 26476 59780 "GET /about/ HTTP/1.1" 200 45150
+INFO 2025-08-08 06:31:47,869 basehttp 26476 59780 "GET /contact/ HTTP/1.1" 200 42878
+INFO 2025-08-08 06:39:12,005 basehttp 26476 61076 "GET /contact/ HTTP/1.1" 200 42878
+INFO 2025-08-08 06:39:12,035 basehttp 26476 61076 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 06:39:24,291 basehttp 26476 61076 "GET / HTTP/1.1" 200 18199
+INFO 2025-08-08 06:40:07,361 basehttp 26476 61076 "GET / HTTP/1.1" 200 18211
+INFO 2025-08-08 06:40:43,488 basehttp 26476 61076 "GET / HTTP/1.1" 200 18209
+INFO 2025-08-08 06:41:17,053 basehttp 26476 61076 "GET / HTTP/1.1" 200 18214
+INFO 2025-08-08 06:41:47,197 basehttp 26476 61076 "GET / HTTP/1.1" 200 18219
+INFO 2025-08-08 06:41:47,226 basehttp 26476 61076 "GET /static/src/output.css HTTP/1.1" 200 185563
+INFO 2025-08-08 06:42:51,795 basehttp 26476 61600 "GET / HTTP/1.1" 200 18232
+INFO 2025-08-08 06:42:51,824 basehttp 26476 61600 "GET /static/src/output.css HTTP/1.1" 200 185613
+INFO 2025-08-08 06:44:03,815 basehttp 26476 61600 "GET / HTTP/1.1" 200 18239
+INFO 2025-08-08 06:44:03,845 basehttp 26476 61600 "GET /static/src/output.css HTTP/1.1" 200 185672
+INFO 2025-08-08 06:44:55,210 basehttp 26476 61600 "GET / HTTP/1.1" 200 18239
+INFO 2025-08-08 06:44:55,234 basehttp 26476 61600 "GET /static/src/output.css HTTP/1.1" 200 185731
+INFO 2025-08-08 06:59:26,956 basehttp 26476 63932 "GET / HTTP/1.1" 200 24200
+INFO 2025-08-08 06:59:26,988 basehttp 26476 63932 "GET /static/src/output.css HTTP/1.1" 200 186410
+INFO 2025-08-08 07:02:38,081 basehttp 26476 63932 - Broken pipe from ('127.0.0.1', 3746)
+INFO 2025-08-08 07:02:39,591 basehttp 26476 64276 "GET /portfolio/ HTTP/1.1" 200 18090
+INFO 2025-08-08 07:02:39,618 basehttp 26476 64276 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 07:02:44,380 basehttp 26476 64276 "GET /about/ HTTP/1.1" 200 45150
+INFO 2025-08-08 07:07:05,066 basehttp 26476 64276 "GET /about/ HTTP/1.1" 200 30743
+INFO 2025-08-08 07:07:05,113 basehttp 26476 64276 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 07:08:59,899 basehttp 26476 64276 "GET /about/ HTTP/1.1" 200 45079
+INFO 2025-08-08 07:08:59,923 basehttp 26476 64276 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 07:10:14,043 basehttp 26476 64276 "GET /about/ HTTP/1.1" 200 45080
+INFO 2025-08-08 07:10:14,072 basehttp 26476 64276 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 07:53:12,620 autoreload 13164 14084 Watching for file changes with StatReloader
+INFO 2025-08-08 08:05:56,906 autoreload 15084 14456 Watching for file changes with StatReloader
+INFO 2025-08-08 08:06:40,016 basehttp 15084 14684 "GET / HTTP/1.1" 200 24200
+INFO 2025-08-08 08:06:40,205 basehttp 15084 14684 "GET /static/src/output.css HTTP/1.1" 200 170448
+WARNING 2025-08-08 08:06:47,722 log 15084 14684 Not Found: /favicon.ico
+WARNING 2025-08-08 08:06:47,722 basehttp 15084 14684 "GET /favicon.ico HTTP/1.1" 404 4776
+INFO 2025-08-08 08:07:18,431 basehttp 15084 14684 "GET /contact/ HTTP/1.1" 200 42878
+INFO 2025-08-08 08:07:32,105 basehttp 15084 14684 - Broken pipe from ('127.0.0.1', 1878)
+INFO 2025-08-08 08:07:33,251 basehttp 15084 15872 "GET /about/ HTTP/1.1" 200 44746
+INFO 2025-08-08 08:08:28,301 basehttp 15084 15872 "GET /about/ HTTP/1.1" 200 45080
+INFO 2025-08-08 08:08:28,339 basehttp 15084 15872 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 08:09:18,242 basehttp 15084 15872 "GET / HTTP/1.1" 200 24200
+INFO 2025-08-08 08:09:38,810 basehttp 15084 15872 "GET /portfolio/ HTTP/1.1" 200 18090
+INFO 2025-08-08 08:10:02,898 basehttp 15084 15872 "GET /contact/ HTTP/1.1" 200 42878
+INFO 2025-08-08 08:10:02,941 basehttp 15084 15872 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 08:11:08,082 basehttp 15084 15872 "GET / HTTP/1.1" 200 24200
+INFO 2025-08-08 08:11:10,526 basehttp 15084 15872 "GET /contact/ HTTP/1.1" 200 42878
+INFO 2025-08-08 08:11:24,962 basehttp 15084 15872 "GET /blog/ HTTP/1.1" 200 14632
+INFO 2025-08-08 08:11:36,855 basehttp 15084 15872 "GET / HTTP/1.1" 200 24200
+INFO 2025-08-08 08:11:41,565 basehttp 15084 15872 "GET /portfolio/ HTTP/1.1" 200 18090
+INFO 2025-08-08 08:18:24,624 autoreload 10216 6440 Watching for file changes with StatReloader
+INFO 2025-08-08 08:19:24,228 basehttp 10216 14188 "GET / HTTP/1.1" 200 24200
+INFO 2025-08-08 08:19:24,791 basehttp 10216 14188 "GET /static/src/output.css HTTP/1.1" 200 170448
+WARNING 2025-08-08 08:19:47,252 log 10216 14188 Not Found: /favicon.ico
+WARNING 2025-08-08 08:19:47,273 basehttp 10216 14188 "GET /favicon.ico HTTP/1.1" 404 4776
+INFO 2025-08-08 08:20:57,936 basehttp 10216 14188 "GET / HTTP/1.1" 200 24203
+INFO 2025-08-08 08:21:26,765 basehttp 10216 14188 "GET /about/ HTTP/1.1" 200 45083
+INFO 2025-08-08 08:21:31,241 basehttp 10216 14188 "GET / HTTP/1.1" 200 24203
+INFO 2025-08-08 08:21:52,121 basehttp 10216 1944 "GET / HTTP/1.1" 200 24202
+INFO 2025-08-08 08:22:09,406 basehttp 10216 13876 "GET / HTTP/1.1" 200 24203
+INFO 2025-08-08 08:22:09,442 basehttp 10216 13876 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 08:34:28,169 autoreload 13432 13436 Watching for file changes with StatReloader
+INFO 2025-08-08 08:35:08,959 basehttp 13432 13892 "GET / HTTP/1.1" 200 24203
+INFO 2025-08-08 08:35:09,506 basehttp 13432 13892 "GET /static/src/output.css HTTP/1.1" 200 170315
+INFO 2025-08-08 08:35:18,670 basehttp 13432 13892 "GET /contact/ HTTP/1.1" 200 42881
+INFO 2025-08-08 08:35:18,825 basehttp 13432 13892 "GET /static/src/output.css HTTP/1.1" 304 0
+WARNING 2025-08-08 08:35:19,072 log 13432 13892 Not Found: /favicon.ico
+WARNING 2025-08-08 08:35:19,150 basehttp 13432 13892 "GET /favicon.ico HTTP/1.1" 404 4776
+INFO 2025-08-08 08:36:09,596 basehttp 13432 16216 "GET /contact/ HTTP/1.1" 200 42881
+INFO 2025-08-08 08:36:09,633 basehttp 13432 16216 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 08:37:29,394 basehttp 13432 16216 "GET /contact/ HTTP/1.1" 200 42881
+INFO 2025-08-08 08:37:29,445 basehttp 13432 16216 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 08:37:30,594 basehttp 13432 16216 "GET /contact/ HTTP/1.1" 200 42881
+INFO 2025-08-08 08:37:31,605 basehttp 13432 16216 "GET /contact/ HTTP/1.1" 200 42881
+INFO 2025-08-08 08:38:44,551 basehttp 13432 16216 "GET / HTTP/1.1" 200 24203
+INFO 2025-08-08 08:38:44,608 basehttp 13432 16216 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 08:45:16,317 basehttp 13432 7972 "GET / HTTP/1.1" 200 24203
+INFO 2025-08-08 08:45:16,378 basehttp 13432 7972 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 08:47:53,324 basehttp 13432 7972 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-08 08:47:53,410 basehttp 13432 7972 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 08:47:53,455 basehttp 13432 7972 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:47:53,456 basehttp 13432 9800 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:47:53,468 basehttp 13432 13404 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:47:53,495 basehttp 13432 10072 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:47:53,515 basehttp 13432 16308 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:47:53,520 basehttp 13432 13620 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:47:53,536 basehttp 13432 16188 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 08:48:18,100 basehttp 13432 14808 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 08:48:18,158 basehttp 13432 14808 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:48:18,158 basehttp 13432 16220 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:48:18,175 basehttp 13432 15864 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:48:18,177 basehttp 13432 10872 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:48:18,200 basehttp 13432 2364 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:48:18,201 basehttp 13432 108 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:48:18,239 basehttp 13432 6452 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 08:48:19,223 basehttp 13432 748 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 08:48:19,255 basehttp 13432 2764 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:48:19,268 basehttp 13432 748 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:48:19,302 basehttp 13432 14964 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:48:19,304 basehttp 13432 15112 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:48:19,306 basehttp 13432 10956 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:48:19,318 basehttp 13432 12460 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:48:19,336 basehttp 13432 2752 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 08:48:20,179 basehttp 13432 11644 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 08:48:20,222 basehttp 13432 11644 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:48:20,231 basehttp 13432 5800 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:48:20,254 basehttp 13432 9580 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:48:20,260 basehttp 13432 13912 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:48:20,260 basehttp 13432 12560 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:48:20,270 basehttp 13432 9388 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:48:20,318 basehttp 13432 14552 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 08:48:20,400 basehttp 13432 13596 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 08:48:20,425 basehttp 13432 13596 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:48:20,437 basehttp 13432 15008 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:48:20,469 basehttp 13432 9516 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:48:20,470 basehttp 13432 13472 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:48:20,485 basehttp 13432 10016 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:48:20,486 basehttp 13432 15068 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:48:20,518 basehttp 13432 8092 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 08:48:20,653 basehttp 13432 15988 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 08:48:20,694 basehttp 13432 15988 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:48:20,694 basehttp 13432 5948 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:48:20,703 basehttp 13432 14076 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:48:20,718 basehttp 13432 8260 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:48:20,725 basehttp 13432 10232 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:48:20,726 basehttp 13432 16116 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:48:20,778 basehttp 13432 7916 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 08:48:20,874 basehttp 13432 10372 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 08:48:20,913 basehttp 13432 14748 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:48:20,913 basehttp 13432 10372 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:48:20,927 basehttp 13432 12196 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:48:20,948 basehttp 13432 11124 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:48:20,948 basehttp 13432 10716 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:48:20,962 basehttp 13432 16048 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:48:20,979 basehttp 13432 16008 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 08:48:21,104 basehttp 13432 2392 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 08:48:21,143 basehttp 13432 2392 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:48:21,144 basehttp 13432 9044 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:48:21,166 basehttp 13432 10928 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:48:21,166 basehttp 13432 15448 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:48:21,183 basehttp 13432 11096 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:48:21,194 basehttp 13432 13456 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:48:21,208 basehttp 13432 10224 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 08:48:28,291 basehttp 13432 13988 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 08:48:28,328 basehttp 13432 13988 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:48:28,340 basehttp 13432 7304 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:48:28,359 basehttp 13432 220 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:48:28,367 basehttp 13432 6884 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:48:28,374 basehttp 13432 11416 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:48:28,374 basehttp 13432 15348 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:48:28,424 basehttp 13432 320 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 08:48:28,531 basehttp 13432 15280 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 08:48:28,570 basehttp 13432 15280 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:48:28,573 basehttp 13432 15628 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:48:28,581 basehttp 13432 13556 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:48:28,597 basehttp 13432 15960 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:48:28,601 basehttp 13432 14752 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:48:28,607 basehttp 13432 16280 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:48:28,644 basehttp 13432 15396 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 08:48:28,771 basehttp 13432 13652 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 08:48:28,808 basehttp 13432 16332 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:48:28,809 basehttp 13432 13652 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:48:28,836 basehttp 13432 15604 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:48:28,842 basehttp 13432 6460 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:48:28,843 basehttp 13432 14468 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:48:28,852 basehttp 13432 16376 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:48:28,874 basehttp 13432 13576 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 08:48:37,153 basehttp 13432 15492 "GET /admin/login/ HTTP/1.1" 200 4217
+WARNING 2025-08-08 08:48:37,196 basehttp 13432 15492 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:48:37,217 basehttp 13432 14740 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:48:37,218 basehttp 13432 16092 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:48:37,241 basehttp 13432 11288 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:48:37,242 basehttp 13432 15976 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:48:37,253 basehttp 13432 15444 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:48:37,276 basehttp 13432 10388 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 08:48:47,008 basehttp 13432 16292 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-08 08:48:47,028 basehttp 13432 16292 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 08:48:47,091 basehttp 13432 16292 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 08:48:47,104 basehttp 13432 11984 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 08:48:47,105 basehttp 13432 15172 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 08:48:47,117 basehttp 13432 15836 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 08:48:47,144 basehttp 13432 15732 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 08:48:47,144 basehttp 13432 15600 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 08:48:47,156 basehttp 13432 14616 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 09:39:34,624 autoreload 196 10940 Watching for file changes with StatReloader
+INFO 2025-08-08 09:39:51,512 autoreload 9672 9200 Watching for file changes with StatReloader
+INFO 2025-08-08 09:40:31,007 basehttp 9672 5536 "GET / HTTP/1.1" 200 24203
+INFO 2025-08-08 09:40:31,050 basehttp 9672 5536 "GET /static/src/output.css HTTP/1.1" 304 0
+INFO 2025-08-08 09:40:43,402 basehttp 9672 5536 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-08 09:40:43,464 basehttp 9672 5536 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4230
+WARNING 2025-08-08 09:40:43,511 basehttp 9672 5536 "GET /static/admin/css/base.css HTTP/1.1" 404 1994
+WARNING 2025-08-08 09:40:43,521 basehttp 9672 15072 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 2009
+WARNING 2025-08-08 09:40:43,532 basehttp 9672 596 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 2015
+WARNING 2025-08-08 09:40:43,539 basehttp 9672 12796 "GET /static/admin/css/login.css HTTP/1.1" 404 1997
+WARNING 2025-08-08 09:40:43,550 basehttp 9672 14800 "GET /static/admin/css/responsive.css HTTP/1.1" 404 2012
+WARNING 2025-08-08 09:40:43,571 basehttp 9672 15812 "GET /static/admin/js/theme.js HTTP/1.1" 404 1991
+WARNING 2025-08-08 09:40:43,599 basehttp 9672 10272 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 2009
+INFO 2025-08-08 09:41:20,831 autoreload 9672 9200 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\portfolio\settings.py changed, reloading.
+INFO 2025-08-08 09:41:22,123 autoreload 10468 7924 Watching for file changes with StatReloader
+INFO 2025-08-08 09:41:30,017 basehttp 10468 11036 "GET /admin/login/?next=/admin/ HTTP/1.1" 301 0
+INFO 2025-08-08 09:41:30,021 basehttp 10468 6196 code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03}4`\x9bH{åY\x7f\x0eÖ\\\x04#Ò1e¿Dó\x15Z\x7f\x98ã\x91gýÉËN\x88')
+ERROR 2025-08-08 09:41:30,021 basehttp 10468 6196 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:41:30,023 basehttp 10468 12820 code 400, message Bad request version ('\x02h2\x08http/1.1ÿ\x01\x00\x01\x00\x00')
+ERROR 2025-08-08 09:41:30,024 basehttp 10468 12820 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:41:34,168 basehttp 10468 2692 code 400, message Bad request syntax ('\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x039ÕSAí¥]')
+ERROR 2025-08-08 09:41:34,170 basehttp 10468 2692 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:41:34,172 basehttp 10468 14832 code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01ÿ\x01\x00\x01\x00\x00')
+ERROR 2025-08-08 09:41:34,178 basehttp 10468 14832 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:41:34,182 basehttp 10468 13408 code 400, message Bad request version ('¦û|\x8dÑ0X\x82TÑdõ½Ø!è®<U\x88´/Ê')
+ERROR 2025-08-08 09:41:34,183 basehttp 10468 13408 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:41:34,184 basehttp 10468 15300 code 400, message Bad request version ('**\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06S\x9a\x9a\x00\x00\x00')
+ERROR 2025-08-08 09:41:34,194 basehttp 10468 15300 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:41:34,999 basehttp 10468 12168 code 400, message Bad request version ('\x0e!ùmC#AÐ8\x84§÷\x10(é\x08~p\x00\x15Wø\\R\x87\x7fûÎ×\x99\x00')
+INFO 2025-08-08 09:41:34,999 basehttp 10468 13928 code 400, message Bad request version ('\x05\x00')
+ERROR 2025-08-08 09:41:35,007 basehttp 10468 12168 You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-08-08 09:41:35,010 basehttp 10468 13928 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:41:35,011 basehttp 10468 14800 code 400, message Bad request version ("H\x12\x9c^z\x9dpÌc'¡Å")
+ERROR 2025-08-08 09:41:35,012 basehttp 10468 14800 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:41:35,013 basehttp 10468 12200 code 400, message Bad request version ('JJ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93**\x00\x00\x00')
+ERROR 2025-08-08 09:41:35,016 basehttp 10468 12200 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:25,442 basehttp 10468 280 "GET /admin/ HTTP/1.1" 301 0
+INFO 2025-08-08 09:42:25,457 basehttp 10468 15828 code 400, message Bad request version ('/\x05Ú(jÈ,-·"á$2ØP_\x90â¡¤ÉVYÉ\x15Òñ|kûgU¢\x0e')
+ERROR 2025-08-08 09:42:25,458 basehttp 10468 15828 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:25,463 basehttp 10468 10352 code 400, message Bad request syntax ('\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03î\x94ÖDÿ')
+ERROR 2025-08-08 09:42:25,465 basehttp 10468 10352 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:32,256 basehttp 10468 1344 code 400, message Bad request version ('-ÄË\x10±qÌ\x93-Óò\x80ð)\x9d\x96Í\x9e<Â\x14F®\x91&\x1aí')
+ERROR 2025-08-08 09:42:32,257 basehttp 10468 1344 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:32,260 basehttp 10468 8296 code 400, message Bad request version ('m\x1a-\x12wZ\xadñ')
+ERROR 2025-08-08 09:42:32,260 basehttp 10468 8296 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:34,641 basehttp 10468 14508 code 400, message Bad request version ('\x8cFY]¹CtÛw=pÇÍ')
+ERROR 2025-08-08 09:42:34,641 basehttp 10468 14508 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:34,643 basehttp 10468 16264 code 400, message Bad request version ('q\x8d«¬ÐÞúµ®¼q/r`\x8162l\x8dÌ\x00\x14`ð¿pª¼¥\x80\x13{\x00')
+ERROR 2025-08-08 09:42:34,644 basehttp 10468 16264 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:34,645 basehttp 10468 15860 code 400, message Bad request version ('\x03\x1b@¾C}C¸\x00bì\x8c\x96ª?\\´R¨LÅ')
+ERROR 2025-08-08 09:42:34,649 basehttp 10468 15860 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:34,651 basehttp 10468 16184 code 400, message Bad request version ('IóPF\x90\x9eøâ\x18P²\x92ãu\\')
+ERROR 2025-08-08 09:42:34,653 basehttp 10468 16184 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:42,615 basehttp 10468 7352 "GET /admi HTTP/1.1" 301 0
+INFO 2025-08-08 09:42:42,629 basehttp 10468 16216 code 400, message Bad request version ('Å=ÖÚoå\x19r\x9aÐ\x10\x91Ê[*e\x93\x93SÂ6\x02³')
+ERROR 2025-08-08 09:42:42,630 basehttp 10468 16216 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:42,637 basehttp 10468 15644 code 400, message Bad request version ('â\x83ýÍW\x86[¥D')
+ERROR 2025-08-08 09:42:42,639 basehttp 10468 15644 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:46,451 basehttp 10468 15848 code 400, message Bad request version ('×L\x9bR')
+ERROR 2025-08-08 09:42:46,452 basehttp 10468 15848 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:46,465 basehttp 10468 9988 code 400, message Bad request version ('Á\x84\\')
+ERROR 2025-08-08 09:42:46,466 basehttp 10468 9988 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:46,467 basehttp 10468 10788 code 400, message Bad request version ('\x19\x99\x07´\x05ÎI%ÿ±¸\x00')
+ERROR 2025-08-08 09:42:46,470 basehttp 10468 10788 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:46,477 basehttp 10468 15352 code 400, message Bad request version ('\x02h2\x08http/1.1\x00+\x00\x07\x06jj\x03\x04\x03\x03\x00')
+ERROR 2025-08-08 09:42:46,479 basehttp 10468 15352 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:58,060 basehttp 10468 10272 code 400, message Bad request version ('jj\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06sZZ\x00\x00\x003\x04ï\x04ízz\x00\x01\x00\x11ì\x04À1!\x9f\x977ToÂ\\Ñc')
+ERROR 2025-08-08 09:42:58,063 basehttp 10468 10272 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:58,072 basehttp 10468 10512 code 400, message Bad request version ('\x9a\x9a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06SÊÊ\x00\x00ÿ\x01\x00\x01\x00\x00\x12\x00\x00\x00+\x00\x07\x06::\x03\x04\x03\x03\x00#\x00\x00\x00')
+ERROR 2025-08-08 09:42:58,077 basehttp 10468 10512 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:42:58,078 basehttp 10468 15852 code 400, message Bad request version ('ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06sJJ\x00\x00\x003\x04ï\x04ízz\x00\x01\x00\x11ì\x04ÀäU\x840')
+INFO 2025-08-08 09:42:58,085 basehttp 10468 2336 code 400, message Bad request version ('\x8b\x89\x05\x08²en\x84')
+ERROR 2025-08-08 09:42:58,088 basehttp 10468 15852 You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-08-08 09:42:58,089 basehttp 10468 2336 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:12,127 autoreload 10468 7924 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\portfolio\settings.py changed, reloading.
+INFO 2025-08-08 09:43:14,934 autoreload 4868 9520 Watching for file changes with StatReloader
+INFO 2025-08-08 09:43:17,287 basehttp 4868 15848 code 400, message Bad request version ('\x13æ;èæÅ\x9c`\x15-\x04\x9e\x8aî¾#C\\@qÈ;\x0fm]|\x7f)byQ÷O')
+ERROR 2025-08-08 09:43:17,288 basehttp 4868 15848 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:17,289 basehttp 4868 3272 code 400, message Bad request version ('\x00\x02\x01\x00DÍ\x00\x05\x00\x03\x02h2\x00')
+ERROR 2025-08-08 09:43:17,290 basehttp 4868 3272 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:17,293 basehttp 4868 14844 code 400, message Bad request version ('ï\x90k\x08ZA\x99³')
+ERROR 2025-08-08 09:43:17,295 basehttp 4868 14844 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:17,296 basehttp 4868 12168 code 400, message Bad request version ('VÎ\x9b¦\x17)s')
+ERROR 2025-08-08 09:43:17,296 basehttp 4868 12168 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:17,551 basehttp 4868 12200 code 400, message Bad request version ('\x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93')
+ERROR 2025-08-08 09:43:17,552 basehttp 4868 12200 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:17,554 basehttp 4868 5536 code 400, message Bad request version ('G')
+ERROR 2025-08-08 09:43:17,555 basehttp 4868 5536 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:19,080 basehttp 4868 12188 code 400, message Bad request version ('ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06S\x1a\x1a\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00')
+ERROR 2025-08-08 09:43:19,081 basehttp 4868 12188 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:19,083 basehttp 4868 10788 code 400, message Bad request version ('JJ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06S')
+ERROR 2025-08-08 09:43:19,083 basehttp 4868 10788 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:19,084 basehttp 4868 16084 code 400, message Bad request version ('\x13\x83\x15Èñ\x8e¯7\x81íPæ\x1bUÄhv¦19\x86.EÏDÍ4eTÎ\x8a\x9a\x10¦ý¿*\x9dÐêg-#\x80[5\x13\x7f¯,Sk\x8f\x11¤')
+ERROR 2025-08-08 09:43:19,086 basehttp 4868 16084 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:19,086 basehttp 4868 10512 code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06')
+ERROR 2025-08-08 09:43:19,089 basehttp 4868 10512 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:19,815 basehttp 4868 12128 code 400, message Bad request version ('ÊÊ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93**\x00\x00\x00')
+INFO 2025-08-08 09:43:19,816 basehttp 4868 9744 code 400, message Bad request version ('i¬>\x17\x80S`´m§M[:Ë&$Ê0°N\x94[[c3¯ùê?\\Ûvý©Å0)\x99\x16@_·g8.Fc«×iÿÅ<À\x91B')
+ERROR 2025-08-08 09:43:19,817 basehttp 4868 12128 You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-08-08 09:43:19,820 basehttp 4868 9744 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:19,827 basehttp 4868 1476 code 400, message Bad request version ('¹Tò')
+INFO 2025-08-08 09:43:19,828 basehttp 4868 8296 code 400, message Bad request version ('~aÃü\x0f¨\x8f\x8d£')
+ERROR 2025-08-08 09:43:19,828 basehttp 4868 1476 You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-08-08 09:43:19,828 basehttp 4868 8296 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:27,050 autoreload 4868 9520 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\portfolio\settings.py changed, reloading.
+INFO 2025-08-08 09:43:44,896 autoreload 16688 16692 Watching for file changes with StatReloader
+INFO 2025-08-08 09:43:47,800 basehttp 16688 17120 code 400, message Bad request version ('\x8c9f\x97Ïäl4sR³éG¶\x17±kWe')
+ERROR 2025-08-08 09:43:47,801 basehttp 16688 17120 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:47,804 basehttp 16688 17124 code 400, message Bad request version ('r')
+ERROR 2025-08-08 09:43:47,807 basehttp 16688 17124 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:48,045 basehttp 16688 17132 code 400, message Bad request version ("\x00\x02\x01\x00\x00+\x00\x07\x06::\x03\x04\x03\x03\x003\x04ï\x04íjj\x00\x01\x00\x11ì\x04À\x10bÃÑÚ\x15\x1a'A*\x89\x02@72\x0f3µìÕ")
+ERROR 2025-08-08 09:43:48,046 basehttp 16688 17132 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:48,047 basehttp 16688 17140 code 400, message Bad request version ('\x8e@5ó\x10/)\\¾E©¦\x1b±¢\x9eÙ£fA\x9e\x8c¡º°è\x989ëÅ\x88Õ^\x04i\xadÅ¨\x14P\x93¯m¡¥ñ\x89:¼<\x91S×¹uX\x8b³²´#')
+ERROR 2025-08-08 09:43:48,048 basehttp 16688 17140 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:48,049 basehttp 16688 17144 code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03?R|\x1by¹öJW\x19\x08%¶J\x1aG«\x96ûÑR.¤9\x08á\x01\x10«\x13`ù')
+ERROR 2025-08-08 09:43:48,050 basehttp 16688 17144 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:48,052 basehttp 16688 17148 code 400, message Bad request version ('\x02h2\x08http/1.1\x00')
+ERROR 2025-08-08 09:43:48,053 basehttp 16688 17148 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:58,386 basehttp 16688 17136 "GET / HTTP/1.1" 301 0
+INFO 2025-08-08 09:43:58,395 basehttp 16688 17228 code 400, message Bad request version ('**\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93')
+ERROR 2025-08-08 09:43:58,399 basehttp 16688 17228 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:43:58,403 basehttp 16688 17232 code 400, message Bad request syntax ('\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03ñ')
+ERROR 2025-08-08 09:43:58,411 basehttp 16688 17232 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:49:31,991 autoreload 14168 14172 Watching for file changes with StatReloader
+INFO 2025-08-08 09:50:00,528 basehttp 14168 10712 code 400, message Bad request version ('\x02h2\x08http/1.1\x00#\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00\x12\x00\x00\x003\x04ï\x04í')
+ERROR 2025-08-08 09:50:00,530 basehttp 14168 10712 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:50:00,580 basehttp 14168 11280 code 400, message Bad request version ('ïê¢óª\x8fê¢\x15<\x11ÁúóÔÃ\x9fZjsÓØà')
+ERROR 2025-08-08 09:50:00,581 basehttp 14168 11280 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:50:10,794 basehttp 14168 15560 code 400, message Bad request version ('ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06S\x8a\x8a\x00\x00ÿ\x01\x00\x01\x00\x00')
+ERROR 2025-08-08 09:50:10,796 basehttp 14168 15560 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:50:10,799 basehttp 14168 15564 code 400, message Bad request version ('ÊÊ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93ÚÚ\x00\x00\x00+\x00\x07\x06::\x03\x04\x03\x03\x00')
+ERROR 2025-08-08 09:50:10,809 basehttp 14168 15564 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:50:32,117 basehttp 14168 15920 "GET / HTTP/1.1" 301 0
+INFO 2025-08-08 09:50:32,424 basehttp 14168 15932 code 400, message Bad request version ('ã\x959«±Ç\x81<\x083¨,Wµê·\x93\\\x96\x89\x10\x84')
+ERROR 2025-08-08 09:50:32,425 basehttp 14168 15932 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:50:32,694 basehttp 14168 15936 code 400, message Bad request version ('localhost\x00')
+ERROR 2025-08-08 09:50:32,695 basehttp 14168 15936 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:50:32,732 basehttp 14168 15940 code 400, message Bad request version ('\x86')
+ERROR 2025-08-08 09:50:32,732 basehttp 14168 15940 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:50:33,005 basehttp 14168 15944 code 400, message Bad request syntax ('\x16\x03\x01\x06ò\x01\x00\x06î\x03\x03wC·u\x9ciÑUÇÍb\x96¦\x02\x10^')
+ERROR 2025-08-08 09:50:33,009 basehttp 14168 15944 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:50:52,572 autoreload 14168 14172 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\portfolio\settings.py changed, reloading.
+INFO 2025-08-08 09:50:54,640 autoreload 15592 15588 Watching for file changes with StatReloader
+INFO 2025-08-08 09:50:58,214 autoreload 15592 15588 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\portfolio\settings.py changed, reloading.
+INFO 2025-08-08 09:51:00,790 autoreload 16312 16308 Watching for file changes with StatReloader
+INFO 2025-08-08 09:51:04,751 basehttp 16312 13916 code 400, message Bad request version ('JJ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥JJ\x00\x00\x00-\x00\x02\x01\x01\x00')
+ERROR 2025-08-08 09:51:04,753 basehttp 16312 13916 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:51:04,754 basehttp 16312 1692 code 400, message Bad request version ('àpÖÅ.\x0e\x803öö\x98+\x9adÏT')
+ERROR 2025-08-08 09:51:04,754 basehttp 16312 1692 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:51:05,033 basehttp 16312 13924 code 400, message Bad request version ('òUð\x89')
+ERROR 2025-08-08 09:51:05,035 basehttp 16312 13924 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:51:05,099 basehttp 16312 15320 code 400, message Bad request version ('!4\x9d¨\x89&/t\x8a#')
+ERROR 2025-08-08 09:51:05,102 basehttp 16312 15320 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:51:05,103 basehttp 16312 15752 code 400, message Bad request version ('\x9d\x0eYµðµ¿\x9f\x00%')
+ERROR 2025-08-08 09:51:05,104 basehttp 16312 15752 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:51:05,353 basehttp 16312 15820 code 400, message Bad request version ('\x99')
+ERROR 2025-08-08 09:51:05,364 basehttp 16312 15820 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:51:15,611 basehttp 16312 16060 code 400, message Bad request version ('êÛ½Æ\x94')
+ERROR 2025-08-08 09:51:15,619 basehttp 16312 16060 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:51:15,848 basehttp 16312 16088 code 400, message Bad request version ('|®¿ì*.ûE\x18w\x80')
+ERROR 2025-08-08 09:51:15,849 basehttp 16312 16088 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:51:15,959 basehttp 16312 16056 code 400, message Bad request version ('I¿')
+ERROR 2025-08-08 09:51:15,959 basehttp 16312 16056 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:51:16,185 basehttp 16312 15588 code 400, message Bad request version ('»z\x95¢¡\x07ßimèÂ\x90Ä8\x89\x9d²3n\x92PZ\x87.ë\x1a\x87ÊV\x86qÒzº\\¸\x90££ø#iSòQæëm')
+ERROR 2025-08-08 09:51:16,186 basehttp 16312 15588 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:51:46,924 basehttp 16312 9840 "GET / HTTP/1.1" 301 0
+INFO 2025-08-08 09:51:46,928 basehttp 16312 14924 code 400, message Bad request version ('\x8aÁ\x92\x8fvð\x052±©Q')
+ERROR 2025-08-08 09:51:46,929 basehttp 16312 14924 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:51:46,932 basehttp 16312 6248 code 400, message Bad request version ('::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063')
+ERROR 2025-08-08 09:51:46,932 basehttp 16312 6248 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:52:07,668 autoreload 16312 16308 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\portfolio\settings.py changed, reloading.
+INFO 2025-08-08 09:52:09,693 autoreload 15328 14000 Watching for file changes with StatReloader
+INFO 2025-08-08 09:52:12,448 autoreload 15328 14000 C:\Users\PATRIC-JR\Desktop\projet0\portfolio\portfolio\settings.py changed, reloading.
+INFO 2025-08-08 09:52:14,464 autoreload 16256 15880 Watching for file changes with StatReloader
+INFO 2025-08-08 09:53:23,820 basehttp 16256 2928 code 400, message Bad request version ('çq\x90\x02t¤MG\\fq\x8d\x03¢R|&6ù¤»**¸\x03Õgë2\x04\x04Ú[Fô-îÑIó\x88\x8dÇwj\x92\x94z\x80\x94\x01¥X)_v´¼\x13Â×÷px\x80Á«\x93ÃÜ6Dà:&¥TW}\x11')
+ERROR 2025-08-08 09:53:23,824 basehttp 16256 2928 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:23,828 basehttp 16256 14016 code 400, message Bad request version ('V§a|ª\x93')
+ERROR 2025-08-08 09:53:23,828 basehttp 16256 14016 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:24,558 basehttp 16256 15464 code 400, message Bad request version ('**\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06s\x9a\x9a\x00\x00\x00-\x00\x02\x01\x01\x00')
+ERROR 2025-08-08 09:53:24,560 basehttp 16256 15464 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:24,561 basehttp 16256 15492 code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03Ã6&Üeþé¿')
+ERROR 2025-08-08 09:53:24,570 basehttp 16256 15492 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:24,573 basehttp 16256 14952 code 400, message Bad request version ('JJ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Sªª\x00\x00\x00')
+ERROR 2025-08-08 09:53:24,574 basehttp 16256 14952 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:24,575 basehttp 16256 16336 code 400, message Bad request version ('\x14§')
+ERROR 2025-08-08 09:53:24,576 basehttp 16256 16336 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:25,424 basehttp 16256 14632 code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06')
+ERROR 2025-08-08 09:53:25,425 basehttp 16256 14632 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:25,427 basehttp 16256 15436 code 400, message Bad request version ('ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063**\x00\x00DÍ\x00\x05\x00\x03\x02h2\x00\x1b\x00\x03\x02\x00\x02\x00')
+ERROR 2025-08-08 09:53:25,430 basehttp 16256 15436 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:27,836 basehttp 16256 14064 code 400, message Bad request version ('i')
+ERROR 2025-08-08 09:53:27,836 basehttp 16256 14064 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:27,837 basehttp 16256 16236 code 400, message Bad request syntax ('\x16\x03\x01\x06Ò\x01\x00\x06Î\x03\x03û\x13N#À\x95ÛÌw@J')
+ERROR 2025-08-08 09:53:27,838 basehttp 16256 16236 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:28,088 basehttp 16256 11792 code 400, message Bad request version ('4\x0e\x87Õ³Ék·Øx\x96¸\x98ÝhtÍ]\\')
+ERROR 2025-08-08 09:53:28,090 basehttp 16256 11792 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:28,150 basehttp 16256 3284 code 400, message Bad request version ('\x9bh¸\x19Å\x19Ñö÷\x86È½')
+ERROR 2025-08-08 09:53:28,150 basehttp 16256 3284 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:28,151 basehttp 16256 13660 code 400, message Bad request version ('ªª\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06e**\x00\x00\x00\x17\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x003\x04ï\x04í')
+ERROR 2025-08-08 09:53:28,154 basehttp 16256 13660 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:28,394 basehttp 16256 13856 code 400, message Bad request version ('\x9b\x8e(ãx\x9bp¡')
+ERROR 2025-08-08 09:53:28,395 basehttp 16256 13856 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:29,491 basehttp 16256 14488 code 400, message Bad request version ('²\x087')
+ERROR 2025-08-08 09:53:29,494 basehttp 16256 14488 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:29,494 basehttp 16256 3708 code 400, message Bad request version ("¹\x88'\x80ä=ÓA\x17\x88è·V×\x84K¼\x9bô\x89¼¦ª¼ôGuÕy#q\\#*")
+ERROR 2025-08-08 09:53:29,503 basehttp 16256 3708 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:29,507 basehttp 16256 15424 code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00')
+ERROR 2025-08-08 09:53:29,509 basehttp 16256 15424 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-08-08 09:53:29,510 basehttp 16256 10776 code 400, message Bad request version ('\x00\x02\x01\x00\x00')
+ERROR 2025-08-08 09:53:29,515 basehttp 16256 10776 You're accessing the development server over HTTPS, but it only supports HTTP.
